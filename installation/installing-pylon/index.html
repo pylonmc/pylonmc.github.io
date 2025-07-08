@@ -301,6 +301,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Installing Pylon
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -312,6 +325,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#where-is-pylon-data-stored" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where is Pylon data stored?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -416,12 +457,81 @@
   
   
     <li class="md-nav__item">
-      <a href="../../creating-addons/getting-started/" class="md-nav__link">
+      <a href="../../creating-addons/the-basics/getting-started/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Getting started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../creating-addons/the-basics/your-first-item/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Your first item
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../creating-addons/the-basics/running-your-addon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Running your addon
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../creating-addons/the-basics/adding-name-and-lore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Adding name & lore
     
   </span>
   
@@ -550,6 +660,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#where-is-pylon-data-stored" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where is Pylon data stored?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -570,12 +697,15 @@
 <h1 id="installation">Installation</h1>
 <ol>
 <li>Make sure you are running Paper or a Paper fork. Pylon is not compatible with Spigot.</li>
-<li>Download Pylon Core from <a href="https://github.com/pylonmc/pylon-core/releases">here</a></li>
-<li>Download Pylon Base from <a href="https://github.com/pylonmc/pylon-base">here</a></li>
-<li>Drop the .jar files in your plugins folder and restart your server</li>
-<li><a href="../list-of-addons/">Install some addons</a></li>
-<li>Enjoy!</li>
+<li>Download the latest version of Pylon Core from <a href="https://github.com/pylonmc/pylon-core/releases">here</a></li>
+<li>Download the latest version of Pylon Base from <a href="https://github.com/pylonmc/pylon-base">here</a></li>
+<li>Drop the .jar files in your plugins folder and restart your server. <a href="https://madelinemiller.dev/blog/problem-with-reload/">Do not use /reload</a>. The first start will take longer than usual, but after that, Pylon will load much more quickly.</li>
+<li>Check out Pylon Core and Pylon Base's plugin folders to see all the config options available.</li>
+<li><a href="../list-of-addons/">Install some addons.</a></li>
+<li>That's it!</li>
 </ol>
+<h3 id="where-is-pylon-data-stored">Where is Pylon data stored?</h3>
+<p>You might notice that Pylon does not use a database and does not seem to have any storage files in its plugin folder. This is because Pylon stores everything inside the world file itself in the same way that Minecraft does! You don't need to worry about backing up any data besides your worlds: <strong>Pylon's data will always be consistent with the world's data.</strong> This also means that Pylon is <em>much</em> less succeptible to data corruption than other similar plugins.</p>
 
 
 
