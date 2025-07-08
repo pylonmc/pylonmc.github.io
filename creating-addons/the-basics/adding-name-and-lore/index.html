@@ -16,7 +16,7 @@
         <link rel="prev" href="../running-your-addon/">
       
       
-        <link rel="next" href="../../../contributing/getting-started/">
+        <link rel="next" href="../wrapping-up/">
       
       
       <link rel="icon" href="../../../img/favicon.png">
@@ -403,6 +403,46 @@
                 
   
   
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorial 1: Your first item
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorial 1: Your first item
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
   
   
     <li class="md-nav__item">
@@ -546,6 +586,60 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wrapping-up/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Wrapping up
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tutorial 2: Custom item classes
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -755,7 +849,7 @@
 <p><img alt="Creating the language file" src="/img/creating-the-language-file.png" /></p>
 <details>
     <summary>Adding translations for other languages</summary>
-    If we wanted to create a Spanish language file, we would call it 'es' - or 'cs' for czech, and so on. <a href="https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes">See this Wikipedia page for a full list of these 2-letter codes.</a>
+    If we wanted to create a Spanish language file, we would call it 'es.yml' - or 'cs.yml' for Czech, and so on. <a href="https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes">See this Wikipedia page for a full list of these 2-letter codes.</a>
 </details>
 
 <p>Next, add this inside the file:
@@ -780,9 +874,12 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">NamespacedKey</span><span class="w"> </span><span class="n">epicSwordKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NamespacedKey</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;epic_sword&quot;</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div></p>
 <details>
-    <summary>What's all this &lt;arrow&gt; and &lt;red&gt; and &lt;/red&gt; business?&lt;summary&gt;
+    <summary>What's all this &lt;arrow&gt; and &lt;red&gt; and &lt;/red&gt; business?&lt;summary&gt;</summary>
     We'll go into this more later, but Pylon uses <a href="https://docs.advntr.dev/minimessage/index.html">MiniMessage</a> formatting. Pylon also has its own custom tags - &lt;arrow&gt; is an example of this. (TODO add links to language page)
 </details>
+
+<p>Start up the server again. Your sword should now have name and lore!
+<img alt="Epic sword with translations" src="/img/epic-sword.png" /></p>
 
 
 
