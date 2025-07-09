@@ -899,11 +899,10 @@
 <h2 id="adding-the-item">Adding the item</h2>
 <h3 id="creating-a-key">Creating a key</h3>
 <p>NamespacedKeys are how Pylon identifies custom items, blocks, researches, entities, and more.</p>
-<details>
-    <summary>What are NamespaceKeys and why are we using them?</summary>
-    A key is just a simple piece of text, like `pylonbase:copper_dust`, which allows Pylon to uniquely identify your item. This is very similar to how vanilla Minecraft items have IDs. Why don't we just use `copper_dust` as the key? Well, what if two addons add an item called `copper_dust`? We won't be able to tell which one is which! To fix this, Pylon uses `NamespacedKey`s, which just means we take a string *and* your addon's name, and put them together - for example, `my_addon:copper_dust`.
+<details class="question">
+<summary>What are NamespaceKeys and why are we using them?</summary>
+<p>A key is just a simple piece of text, like <code>pylonbase:copper_dust</code>, which allows Pylon to uniquely identify your item. This is very similar to how vanilla Minecraft items have IDs. Why don't we just use <code>copper_dust</code> as the key? Well, what if two addons add an item called <code>copper_dust</code>? We won't be able to tell which one is which! To fix this, Pylon uses <code>NamespacedKey</code>s, which just means we take a string <em>and</em> your addon's name, and put them together - for example, <code>my_addon:copper_dust</code>.</p>
 </details>
-
 <p>To create a new NamespacedKey called 'epic_sword', we can do the following (inside <code>onEnable</code>):
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">NamespacedKey</span><span class="w"> </span><span class="n">epicSwordKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NamespacedKey</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;epic_sword&quot;</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div></p>
@@ -911,14 +910,11 @@
 <p>The second thing we need is an actual item. We'll use <code>ItemStackBuilder</code> for this.</p>
 <p><code>ItemStackBuilder</code> contains several different methods to help you create <code>ItemStack</code>s. For example, you can use <code>.set(&lt;component&gt;, &lt;value&gt;)</code> to set some of the item's values, like enchantments, whether the item is unbreakable, and so on.</p>
 <p><strong>Whenever you're creating a Pylon item, make sure you use <code>ItemStackBuilder.pylonItem(&lt;material&gt;, &lt;key&gt;)</code>.</strong></p>
-<details>
-    <summary>Why use `ItemStackBuilder.pylonItem`, and not any of the other ways to create an ItemStack?</summary>
-
-    There are others ways to create ItemStacks, but **do not** use these to create Pylon items. Under the hood, Pylon stores item keys in PersistentDataContainers, or PDCs (we'll cover them later in the tutorial - if you don't know what a PDC is, for now just imagine it as a simple way to store data inside an in-game item). When you call ItemStackBuilder.pylonItem and supply a key, that key is written to the item's PersistentDataContainer automatically. If you supply your own item stack, its PDC won't contain the item's key, and Pylon won't be able to differentiate that item with a regular Minecraft item.
-
-    `ItemStackBuilder` also sets the name and lore of the item to the default translation keys (which will be explained later in this tutorial).
+<details class="question">
+<summary>Why use <code>ItemStackBuilder.pylonItem</code>, and not any of the other ways to create an ItemStack?</summary>
+<p>There are others ways to create ItemStacks, but <strong>do not</strong> use these to create Pylon items. Under the hood, Pylon stores item keys in PersistentDataContainers, or PDCs (we'll cover them later in the tutorial - if you don't know what a PDC is, for now just imagine it as a simple way to store data inside an in-game item). When you call ItemStackBuilder.pylonItem and supply a key, that key is written to the item's PersistentDataContainer automatically. If you supply your own item stack, its PDC won't contain the item's key, and Pylon won't be able to differentiate that item with a regular Minecraft item.</p>
+<p><code>ItemStackBuilder</code> also sets the name and lore of the item to the default translation keys (which will be explained later in this tutorial).</p>
 </details>
-
 <p>To create an unbreakable diamond sword, you can do as follows:
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
