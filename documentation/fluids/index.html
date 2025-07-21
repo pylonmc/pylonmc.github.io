@@ -1039,13 +1039,13 @@
 <h2 id="fluid-blocks">Fluid blocks</h2>
 <h3 id="pylonfluidblock">PylonFluidBlock</h3>
 <p>PylonFluidBlock must be implemented by any block that has fluid inputs/outputs. This interface allowed you to request fluids from input points, supply fluids to output points, and specify how to add/remove fluids from your block. Confused? See the 'ticking' section for an explanation of how this works.</p>
+<p>See PylonFluidBlock Javadocs for usage information.</p>
 <h3 id="pylonfluidbufferblock">PylonFluidBufferBlock</h3>
 <p>Usually, fluid machines store fluids in internal fluids. For example, the press has an internal buffer used to store plant oil, of size 1000mB by default. This is a common enough thing that we created a new interface to handle it: PylonFluidBufferBlock. This interface allows your block to easily manage fluid buffers.</p>
-<p>You will need to call <code>createFluidBuffer</code> when your block is placed and specify the buffer's fluid type, capacity, whether it can take in fluids from input points, and whether it can supply fluids to output points. </p>
-<p>You do not need to handle saving buffers or implement any of the <code>PylonFluidBlock</code> methods for this; this is all done automatically.</p>
+<p>See PylonFluidBufferBlock Javadocs for usage information.</p>
 <h3 id="pylonfluidtank">PylonFluidTank</h3>
-<p>Another common pattern is a 'fluid tank' which can only store one fluid at a time, but can store many types of fluids. PylonFluidTank implements this pattern. All you need to do to make it work is call <code>setCapacity</code> when your block is placed.</p>
-<p>As with PylonFluidBufferBlock, you do not need to handle saving buffers or implement any of the <code>PylonFluidBlock</code> methods for this; this is all done automatically.</p>
+<p>Another common pattern is a 'fluid tank' which can only store one fluid at a time, but can store many types of fluids. PylonFluidTank implements this pattern.</p>
+<p>See PylonFluidTank Javadocs for usage information.</p>
 <h2 id="physical-vs-virtual-fluid-points">Physical vs virtual fluid points</h2>
 <p>There are physical and virtual fluid points. 'Physical' fluid points (the displays and interactions used to display the boxes and allow you to interact with them) contain a 'virtual' fluid point. This distinction may seem confusing, but helps keep the underlying logic simple. </p>
 <p>Physical fluid points are mainly just a wrapper around virtual fluid points which provide logic for displaying them and for handling player interactions with them - they aren't too important and you'll almost never need to think about them, so when we say 'fluid point', we are referring to virtual fluid points. </p>
@@ -1059,12 +1059,11 @@
 <p>Segments are important because they are the basis of how fluid ticking works. Each segment is ticked every few in-game ticks (depending on your server's config). When a fluid segment is ticked, the following happens:</p>
 <ol>
 <li>We call <code>getRequestedFluids</code> for each block in the segment and make a list of what fluids are being requested and how much of each one is being requested.</li>
-<li>We call <code>getSuppliedFluids</code> for each block and make another list of what fluids can be supplied and how much of each one can be supplied.</li>
 <li>We iterate through every fluid being supplied.</li>
 <li>We skip the fluid if it's not allowed by the segment.</li>
-<li>We skip the fluid if it's not being requested by a machine.</li>
-<li>We figure out how much fluid is being requested and take it from the suppliers by calling <code>onFluidRemoved</code> on a first-come-first-serve basis. If there isn't enough fluid to cover the requested amount, we just take as much as we can.</li>
-<li>We use round-robin to distribute the fluid to the requesters by calling <code>onFluidAdded</code>.</li>
+<li>We skip the fluid if it's not being requested by a machine (ie, <code>fluidAmountRequested</code> returns zero for every machine).</li>
+<li>When/if we find a fluid that is being requested by at least one machine, we use a round-robin algorithm to take as much fluid from each machine as we can, depending on how much fluid can be passed through the pipe and how much is being requested.</li>
+<li>We do another round-robin pass, but this time on the machines that we're sending the fluids to, in order to distribute the fluid between them evenly.</li>
 </ol>
 <h2 id="fluid-flow-rates-and-allowed-fluids">Fluid flow rates and allowed fluids</h2>
 <p>We generally want to limit how quickly pipes can transfer fluids. Properly doing this is difficult and computationally expensive, so we just 'lie' about it and instead limit the fluid flow rate <strong>per segment</strong>. We also might want to limit which fluids can pass through a pipe (for example, no hot fluids allowed in wooden pipes). This is again done on a per-segment basis.</p>
