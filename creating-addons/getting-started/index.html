@@ -24,7 +24,7 @@
     
     
       
-        <title>Getting started - Pylon Docs</title>
+        <title>0 - Getting started - Pylon Docs</title>
       
     
     
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Getting started
+              0 - Getting started
             
           </span>
         </div>
@@ -420,7 +420,7 @@
   
   
   <span class="md-ellipsis">
-    Getting started
+    0 - Getting started
     
   </span>
   
@@ -433,7 +433,7 @@
   
   
   <span class="md-ellipsis">
-    Getting started
+    0 - Getting started
     
   </span>
   
@@ -469,6 +469,15 @@
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-the-difference-between-core-and-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's the difference between core and base?
     </span>
   </a>
   
@@ -521,6 +530,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#what-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What next?
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -553,7 +571,7 @@
   
   
   <span class="md-ellipsis">
-    Your first item
+    1 - Your first item
     
   </span>
   
@@ -564,7 +582,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
-            Your first item
+            1 - Your first item
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -903,6 +921,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#whats-the-difference-between-core-and-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's the difference between core and base?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#a-note-on-kotlin" class="md-nav__link">
     <span class="md-ellipsis">
       A note on Kotlin
@@ -949,6 +976,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#what-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What next?
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -970,7 +1006,7 @@
 
 <h1 id="getting-started">Getting started</h1>
 <h2 id="foreword">Foreword</h2>
-<p>So, you want to write a Pylon addon? Good for you! We've written this comprehensive guide to try and make it as easy as possible. Don't be too intimidated by the wall of text - we'll explain all you need to know as we go along, and you can go as slow as you need to! That said, some basic technical and programming knowledge is required - if you've never used an IDE or a compiler, or never a for loop, you might have a hard time following.</p>
+<p>So, you want to write a Pylon addon? Good for you! We've written this comprehensive guide to try and make it as easy as possible. Don't let the wall of text intimidate you - we'll explain all you need to know as we go along, and you can go as slow as you need to! That said, some basic technical/programming knowledge is required - if you've never used an IDE or a compiler, or have never written a for loop, you might have a hard time following.</p>
 <p>Some housekeeping before we start...</p>
 <h3 id="prerequisites">Prerequisites</h3>
 <p>We'll assume that </p>
@@ -981,6 +1017,10 @@
 <li>you've installed and set up <a href="https://www.jetbrains.com/idea/">IntelliJ</a> and have some idea of how to use it.</li>
 </ul>
 <p>No prior plugin development knowledge is required, though it would certainly be useful!</p>
+<h3 id="whats-the-difference-between-core-and-base">What's the difference between core and base?</h3>
+<p>As you might already know, Pylon is split into two projects: core and base.</p>
+<p>Pylon Core is, well, the core of Pylon. It provides all the tools we need to create Pylon addons. For example, it handles custom items, block storage, translation, WAILA, the Pylon guide, Pylon commands, custom entities, and a lot more.</p>
+<p>Pylon Base is an addon that adds all the default Pylon content. That's right - Pylon Base is a Pylon addon! If you're ever wondering how base does something, you can look at the source code to find out how to do it in your own addons.</p>
 <h3 id="a-note-on-kotlin">A note on Kotlin</h3>
 <p>Though you can write addons in Java just fine, more experienced Java programmers might be interested in <a href="https://kotlinlang.org/">Kotlin</a>. This is an alternative to Java which is much nicer to work with (especially in terms of syntax!) and has some cool features that Java is missing. Pylon Core is written in Kotlin.</p>
 <p>Now let's get into it!</p>
@@ -995,6 +1035,8 @@
 <p>The template is as minimal as possible and contains no fluff. It's built with <a href="https://gradle.org/">gradle</a>. There are two files in the root of the directory - <code>gradlew</code> and <code>gradlew.bat</code> which are wrappers around gradle. If you're using Intellij, you won't need to worry about them. There's also <code>build.gradle.kts</code>, which you'll only need to worry about if you want to add dependencies or want to change the way the project is built.</p>
 <p>What you <em>do</em> need to worry about is <code>build.gradle.kts</code> and <code>gradle.properties</code> These two files contain the top-level information about your project - name, version, Pylon core version, main class, and group. Make sure you change these accordingly. If you're confused about the 'main class' and 'group', <a href="https://www.baeldung.com/java-packages">this might help.</a></p>
 <p>Finally, we've got <code>AddonTemplate.java</code>. This is the important bit! Open it up, and we'll continue from there in the next tutorial.</p>
+<h2 id="what-next">What next?</h2>
+<p>We'll start off by <a href="/creating-addons/your-first-item/adding-an-item/">adding our first item</a>.</p>
 
 
 
