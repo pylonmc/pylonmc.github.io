@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4af4bdda.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -411,7 +411,7 @@
   
   
   <span class="md-ellipsis">
-    0 - Getting started
+    Getting started
     
   </span>
   
@@ -447,7 +447,7 @@
   
   
   <span class="md-ellipsis">
-    1 - Your first item
+    Your first item
     
   </span>
   
@@ -458,7 +458,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
-            1 - Your first item
+            Your first item
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -899,13 +899,11 @@
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
 <span class="normal"><a href="#__codelineno-0-3">3</a></span>
 <span class="normal"><a href="#__codelineno-0-4">4</a></span>
-<span class="normal"><a href="#__codelineno-0-5">5</a></span>
-<span class="normal"><a href="#__codelineno-0-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">NamespacedKey</span><span class="w"> </span><span class="n">epicSwordKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NamespacedKey</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;epic_sword&quot;</span><span class="p">);</span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">NamespacedKey</span><span class="w"> </span><span class="n">epicSwordKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NamespacedKey</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;epic_sword&quot;</span><span class="p">);</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">ItemStack</span><span class="w"> </span><span class="n">epicSword</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ItemStackBuilder</span><span class="p">.</span><span class="na">pylonItem</span><span class="p">(</span><span class="n">Material</span><span class="p">.</span><span class="na">DIAMOND_SWORD</span><span class="p">,</span><span class="w"> </span><span class="n">epicSwordKey</span><span class="p">)</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">        </span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">DataComponentTypes</span><span class="p">.</span><span class="na">UNBREAKABLE</span><span class="p">,</span><span class="w"> </span><span class="n">Unbreakable</span><span class="p">.</span><span class="na">unbreakable</span><span class="p">())</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">PylonItem</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">PylonItem</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="n">epicSword</span><span class="p">);</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">BasePages</span><span class="p">.</span><span class="na">COMBAT</span><span class="p">.</span><span class="na">addItem</span><span class="p">(</span><span class="n">epicSwordKey</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">en.yml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
@@ -927,23 +925,13 @@
 <h2 id="practice-tasks">Practice tasks</h2>
 <ul>
 <li>Add another item with the same key. What happens?</li>
-<li>Allow your sword to have a stack size greater than 1.</li>
-</ul>
-<details class="hint">
-<summary>Hint</summary>
-<p>Use <code>DataComponentTypes.MAX_STACK_SIZE</code></p>
-</details>
-<ul>
+<li>Allow your sword to have a stack size greater than 1. <strong>Hint:</strong> Use <code>DataComponentTypes.MAX_STACK_SIZE</code></li>
 <li>Add an epic pickaxe with a different name and lore</li>
-<li>Add a bow that has only 10 durability, and starts with only 5 left. </li>
+<li>Add a bow that has only 10 durability, and starts with only 5 left. <strong>Hint:</strong> <code>DataComponentTypes.DAMAGE</code> and <code>DataComonentTypes.MAX_DAMAGE</code> probably don't do what you'd think they do from the name...</li>
 </ul>
-<details class="hint">
-<summary>Hint</summary>
-<p><code>DataComponentTypes.DAMAGE</code> and <code>DataComonentTypes.MAX_DAMAGE</code> probably don't do what you'd think they do from the name...</p>
-</details>
 <hr />
 <h2 id="what-next">What next?</h2>
-<p>Well done for getting this far! We've got a lot more to cover, and we'll be able to go faster now that you know the basics. It only gets more interesting from here.</p>
+<p>This is only the beginning! We've got a lot more to cover, and we'll be able to go faster now that you know the basics.</p>
 <p>In the next section, we'll create a custom item class so we can give our item unique behaviours.</p>
 
 
@@ -993,10 +981,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>

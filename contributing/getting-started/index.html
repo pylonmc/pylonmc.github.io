@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -409,7 +409,7 @@
   
   
   <span class="md-ellipsis">
-    0 - Getting started
+    Getting started
     
   </span>
   
@@ -443,7 +443,7 @@
   
   
   <span class="md-ellipsis">
-    1 - Your first item
+    Your first item
     
   </span>
   
@@ -454,7 +454,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
-            1 - Your first item
+            Your first item
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -753,18 +753,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#before-contributing" class="md-nav__link">
+  <a href="#how-to-get-started" class="md-nav__link">
     <span class="md-ellipsis">
-      Before contributing
+      How to get started
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-get-started" class="md-nav__link">
+  <a href="#submitting-your-contributions" class="md-nav__link">
     <span class="md-ellipsis">
-      How to get started
+      Submitting your contributions
     </span>
   </a>
   
@@ -783,15 +783,6 @@
   <a href="#tests" class="md-nav__link">
     <span class="md-ellipsis">
       Tests
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#submitting-your-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Submitting your contributions
     </span>
   </a>
   
@@ -872,18 +863,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#before-contributing" class="md-nav__link">
+  <a href="#how-to-get-started" class="md-nav__link">
     <span class="md-ellipsis">
-      Before contributing
+      How to get started
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-get-started" class="md-nav__link">
+  <a href="#submitting-your-contributions" class="md-nav__link">
     <span class="md-ellipsis">
-      How to get started
+      Submitting your contributions
     </span>
   </a>
   
@@ -902,15 +893,6 @@
   <a href="#tests" class="md-nav__link">
     <span class="md-ellipsis">
       Tests
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#submitting-your-contributions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Submitting your contributions
     </span>
   </a>
   
@@ -947,27 +929,21 @@
 <h1 id="getting-started">Getting started</h1>
 <p>Pylon Core is written in <a href="https://kotlinlang.org/">Kotlin</a>, a language similar to Java, but with more modern features and concise syntax. If you know Java, you'll be able to pick up Kotlin very quickly.</p>
 <p>Pylon Base is written in Java.</p>
-<h2 id="before-contributing">Before contributing</h2>
-<p>We strongly suggest joining our Discord server and having a chat with us before contributing to Pylon Core or Pylon Base. This is for a few reasons:</p>
-<ul>
-<li>It's easy to get overwhelmed at first. However, there's always plenty to do, and we can help you find tasks that are suitable for a newcomer and help you ease into Pylon development rather than diving in at the deep end. We can also support you when you get stuck.</li>
-<li>It's best check with the Pylon team before making any changes beyond simple bug fixes, because we might already have something planned out that won't fit well with your changes. We don't want your effort to go to waste!</li>
-</ul>
 <h2 id="how-to-get-started">How to get started</h2>
-<p>You should follow these steps regardless of whether you want to work on Pylon Base or Pylon Core.</p>
 <ol>
-<li>Clone the <code>pylon</code> repository: <code>git clone https://github.com/pylonmc/pylon</code> (or use a GUI like Github Desktop).</li>
+<li>Clone the <code>pylon</code> repository: <code>git clone https://github.com/pylonmc/pylon</code> (or use a GUI like Github Desktop)</li>
 <li>If you're using IntelliJ, it'll set everything up automatically. If not, run <code>./gradlew</code>. This will clone the <code>pylon-core</code> and <code>pylon-base</code> repositories.</li>
 <li>If you want to submit your changes to the Pylon project, <strong>delete the pylon-core or pylon-base directory (depending on which one you want to contribute to), fork the pylon-core or pylon-base repository, and clone your fork into the same directory.</strong> Otherwise, you won't be able to open a pull request with your changes (unless you're a Pylon developer and have access to the Pylon repositories).</li>
 <li>To run the tests, open the Gradle menu in IntelliJ, click 'pylon' -&gt; 'pylon' -&gt; 'Tasks' -&gt; 'run paper' -&gt; 'runLiveTests'. If you're not using IntelliJ, run <code>./gradlew runLiveTests</code>. This will start a server and run the test addon.</li>
 <li>To run a server with your local versions of <code>pylon-core</code> and <code>pylon-base</code>, open the Gradle menu in IntelliJ, click 'pylon' -&gt; 'pylon' -&gt; 'Tasks' -&gt; 'run paper' -&gt; 'runSnapshotServer'. If you're not using IntelliJ, run <code>./gradlew runSnapshotServer</code>. This will start a server which you can then join by connecting to <code>localhost</code> from Minecraft. The server's files will be located in the <code>run</code> directory.</li>
 </ol>
+<h2 id="submitting-your-contributions">Submitting your contributions</h2>
+<p>We generally welcome contributions for both Core and Base, but it's best check with the Pylon team before making any major changes, because we might already have something planned out that won't fit well with your changes. Hop on our Discord server and have a chat with us if you're interested in doing anything major, or have any questions about contributing :)</p>
+<p>Once you're done with your changes, open a pull request and give some information about what you did and why you did it.</p>
 <h2 id="pylon-master-repository">Pylon master repository</h2>
 <p>Pylon has a master repository that contains both <code>pylon-core</code> and <code>pylon-base</code>. This allows you to run base using your very own home-baked version of core, which allows you to test new features much more easily. This is what the 'How to get started' section used. We recommend you make changes to both base and core using the master repository, and the rest of this guide will assume you're using it.</p>
 <h2 id="tests">Tests</h2>
-<p>Pylon core has a set of integration tests. Tests should only be added for critical functionality such as block storage and recipes. You should not have to worry about tests unless you're changing something deep inside the project.</p>
-<h2 id="submitting-your-contributions">Submitting your contributions</h2>
-<p>Once you're done with your changes, open a pull request on the relevant project (or both Core and Base, if you've modified both) and give some information about what you did and why you did it.</p>
+<p>Pylon core has a set of integration tests. Tests should only be added for critical functionality such as block storage and recipes.</p>
 <h2 id="im-stuck-what-next">I'm stuck, what next?</h2>
 <ol>
 <li>If it's Pylon specific, check if it's in the docs. If it's not Pylon specific, google it.</li>
@@ -1023,10 +999,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>
