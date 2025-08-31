@@ -994,7 +994,7 @@
 <p>Pylon has an <a href="https://github.com/pylonmc/pylon-addon-template">addon template</a> you can use, which comes with everything you need to write a Pylon addon. <a href="https://www.geeksforgeeks.org/git/how-to-fork-a-github-repository/">Create a fork of the template</a>. Then, <a href="https://www.geeksforgeeks.org/git/how-to-git-clone-a-remote-repository/">clone your fork</a>.</p>
 <p>Next, open your fork in Intellij. </p>
 <p>It might take a few minutes for Intellij to import the project.</p>
-<p><img alt="Intellij importing the addon template" src="/img/importing-addon-template.png" /></p>
+<p><img alt="Intellij importing the addon template" src="../img/importing-addon-template.png" /></p>
 <h3 id="whats-in-the-template">What's in the template?</h3>
 <p>The template is as minimal as possible and contains no fluff. It's built with <a href="https://gradle.org/">gradle</a>. There are two files in the root of the directory - <code>gradlew</code> and <code>gradlew.bat</code> which are wrappers around gradle. If you're using Intellij, you won't need to worry about them. There's also <code>build.gradle.kts</code>, which you'll only need to worry about if you want to add dependencies or want to change the way the project is built.</p>
 <p>What you <em>do</em> need to worry about is <code>build.gradle.kts</code> and <code>gradle.properties</code> These two files contain the top-level information about your project - name, version, Pylon core version, main class, and group. Make sure you change these accordingly. If you're confused about the 'main class' and 'group', <a href="https://www.baeldung.com/java-packages">this might help.</a></p>

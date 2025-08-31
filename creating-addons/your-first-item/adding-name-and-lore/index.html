@@ -574,9 +574,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#adding-name-and-lore-to-our-epic-sword" class="md-nav__link">
+  <a href="#adding-name-and-lore-to-our-baguette" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding name and lore to our epic sword
+      Adding name and lore to our baguette
     </span>
   </a>
   
@@ -847,9 +847,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#adding-name-and-lore-to-our-epic-sword" class="md-nav__link">
+  <a href="#adding-name-and-lore-to-our-baguette" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding name and lore to our epic sword
+      Adding name and lore to our baguette
     </span>
   </a>
   
@@ -889,7 +889,7 @@
 <a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="p">...</span>
 </code></pre></div></td></tr></table></div>
 <small>(not real code - just for demonstration purposes)</small></p>
-<p>Now, suppose we want Spanish speakers to be able to play our addon. Well, in Spanish, that's called 'Bomba Nuclear'. But I've hardcoded in 'Nuclear Bomb'... so how can we make sure that Spanish people see 'Bomba Nuclear' instead?</p>
+<p>Now, suppose we want Spanish speakers to be able to play our addon. Well, in Spanish, that's called 'Bomba Nuclear' according to google translate. But I've hardcoded in 'Nuclear Bomb'... so how can we make sure that Spanish people see 'Bomba Nuclear' instead?</p>
 <p>The solution to this is to just use a generic 'translation key'.
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
@@ -909,12 +909,11 @@
 <p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">es.yml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>item.nuclear-bomb.name: &quot;Bomba Nuclear&quot;
 </code></pre></div></td></tr></table></div>
 <small>(not real code - just for demonstration purposes)</small></p>
-<p>Obviously, we'll need some system to substitute in the right translation for the right people, but Pylon will handle that for you, so don't worry about it for now. Now, let's see how to do the same thing with Pylon.</p>
+<p>Obviously, we'll need some system to substitute in the right translation for the right people, but Pylon will handle that for you automatically. Now, let's see how to do the same thing with Pylon.</p>
 <hr />
-<h2 id="adding-name-and-lore-to-our-epic-sword">Adding name and lore to our epic sword</h2>
-<p>Remember how we did <code>item.setName("item.nuclear-bomb.name")</code> above? In Pylon, you don't need to do that because Pylon automatically generates the translation key based on your item's key. All we need to do is create translation files and make sure they contain the correct keys.</p>
-<p>Create a 'resources' folder under 'main', and then a 'lang' folder under that, and finally an 'en.yml' file (for English). </p>
-<p><img alt="Creating the language file" src="/img/creating-the-language-file.png" /></p>
+<h2 id="adding-name-and-lore-to-our-baguette">Adding name and lore to our baguette</h2>
+<p>Remember how we did <code>item.setName("item.nuclear-bomb.name")</code> above? In Pylon, you don't need to do that because Pylon <strong>automatically generates the translation key</strong> based on your item's key. All we need to do is create translation files and make sure they contain the correct keys.</p>
+<p>Open the 'en.yml' file ('en' is a code for 'English') in the <code>src/main/resources/lang</code> folder.</p>
 <details class="note">
 <summary>Adding translations for other languages</summary>
 <p>If we wanted to create a Spanish language file, we would call it 'es.yml' - or 'cs.yml' for Czech, and so on. See <a href="https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes">this Wikipedia page</a> for a full list of these 2-letter codes.</p>
@@ -926,27 +925,24 @@
 <span class="normal"><a href="#__codelineno-4-4">4</a></span>
 <span class="normal"><a href="#__codelineno-4-5">5</a></span>
 <span class="normal"><a href="#__codelineno-4-6">6</a></span>
-<span class="normal"><a href="#__codelineno-4-7">7</a></span>
-<span class="normal"><a href="#__codelineno-4-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>addon: &quot;&lt;your addon name here&gt;&quot;
+<span class="normal"><a href="#__codelineno-4-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>addon: &quot;&lt;your addon name here&gt;&quot;
 <a id="__codelineno-4-2" name="__codelineno-4-2"></a>
 <a id="__codelineno-4-3" name="__codelineno-4-3"></a>item:
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a>  epic_sword:
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a>    name: &quot;Epic Sword&quot;
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>  baguette:
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>    name: &quot;Baguette&quot;
 <a id="__codelineno-4-6" name="__codelineno-4-6"></a>    lore: |-
-<a id="__codelineno-4-7" name="__codelineno-4-7"></a>      &lt;arrow&gt; This is an &lt;red&gt;epic&lt;/red&gt; sword
-<a id="__codelineno-4-8" name="__codelineno-4-8"></a>      &lt;arrow&gt; Very epic
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>      &lt;arrow&gt; &lt;dark_red&gt;The &lt;blue&gt;best &lt;/red&gt;food
 </code></pre></div></td></tr></table></div></p>
 <p>Note that we have an <code>addon</code> key. This is just the name of your addon.</p>
-<p>We've also added <code>name</code> and <code>lore</code> for our sword. Notice that we're using <code>epic_sword</code> here because that's the key that we created earlier:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">NamespacedKey</span><span class="w"> </span><span class="n">epicSwordKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NamespacedKey</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;epic_sword&quot;</span><span class="p">);</span>
+<p>We've also added <code>name</code> and <code>lore</code> for our sword. Notice that we're using <code>baguette</code> here because that's the key that we created earlier, in this line:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">NamespacedKey</span><span class="w"> </span><span class="n">baguetteKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NamespacedKey</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;baguette&quot;</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div></p>
 <details class="question">
 <summary>What's all this &lt;arrow&gt; and &lt;red&gt; and &lt;/red&gt; business?</summary>
 <p>We'll go into this more later, but Pylon uses <a href="https://docs.advntr.dev/minimessage/index.html">MiniMessage</a> formatting. Pylon also has its own custom tags - &lt;arrow&gt; is an example of this. (TODO add links to language page)</p>
 </details>
 <p>Start up the server again. Your sword should now have name and lore!
-<img alt="Epic sword with translations" src="/img/epic-sword.png" /></p>
-<p>(TODO why the hell does this image not have the lore?)</p>
+<img alt="Baguette with translations" src="../img/baguette.png" /></p>
 
 
 
