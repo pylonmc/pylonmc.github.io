@@ -16,7 +16,7 @@
         <link rel="prev" href="../../javadocs/">
       
       
-        <link rel="next" href="../contributing-to-docs/">
+        <link rel="next" href="../master-project/">
       
       
       <link rel="icon" href="../../img/favicon.png">
@@ -1089,18 +1089,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pylon-master-repository" class="md-nav__link">
+  <a href="#tests" class="md-nav__link">
     <span class="md-ellipsis">
-      Pylon master repository
+      Tests
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tests" class="md-nav__link">
+  <a href="#custom-dokka" class="md-nav__link">
     <span class="md-ellipsis">
-      Tests
+      Custom Dokka
     </span>
   </a>
   
@@ -1119,6 +1119,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../master-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    The Pylon Master Project
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1199,18 +1222,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pylon-master-repository" class="md-nav__link">
+  <a href="#tests" class="md-nav__link">
     <span class="md-ellipsis">
-      Pylon master repository
+      Tests
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tests" class="md-nav__link">
+  <a href="#custom-dokka" class="md-nav__link">
     <span class="md-ellipsis">
-      Tests
+      Custom Dokka
     </span>
   </a>
   
@@ -1251,17 +1274,20 @@
 <ol>
 <li>Clone the <code>pylon</code> repository: <code>git clone https://github.com/pylonmc/pylon</code> (or use a GUI like Github Desktop)</li>
 <li>If you're using IntelliJ, it'll set everything up automatically. If not, run <code>./gradlew</code>. This will clone the <code>pylon-core</code> and <code>pylon-base</code> repositories.</li>
-<li>If you want to submit your changes to the Pylon project, <strong>delete the pylon-core or pylon-base directory (depending on which one you want to contribute to), fork the pylon-core or pylon-base repository, and clone your fork into the same directory.</strong> Otherwise, you won't be able to open a pull request with your changes (unless you're a Pylon developer and have access to the Pylon repositories).</li>
-<li>To run the tests, open the Gradle menu in IntelliJ, click 'pylon' -&gt; 'pylon' -&gt; 'Tasks' -&gt; 'run paper' -&gt; 'runLiveTests'. If you're not using IntelliJ, run <code>./gradlew runLiveTests</code>. This will start a server and run the test addon.</li>
-<li>To run a server with your local versions of <code>pylon-core</code> and <code>pylon-base</code>, open the Gradle menu in IntelliJ, click 'pylon' -&gt; 'pylon' -&gt; 'Tasks' -&gt; 'run paper' -&gt; 'runSnapshotServer'. If you're not using IntelliJ, run <code>./gradlew runSnapshotServer</code>. This will start a server which you can then join by connecting to <code>localhost</code> from Minecraft. The server's files will be located in the <code>run</code> directory.</li>
+<li>If you want to submit your changes to the Pylon project, <strong>delete the <code>pylon-core</code> or <code>pylon-base</code> directory (depending on which one you want to contribute to), fork the pylon-core or pylon-base repository, and clone your fork into the same directory.</strong> Otherwise, you won't be able to open a pull request with your changes (unless you're a Pylon developer and have access to the Pylon repositories).</li>
 </ol>
+<p>See the <a href="./master-project">Pylon Master Project</a> page for more information about the master repository.</p>
 <h2 id="submitting-your-contributions">Submitting your contributions</h2>
 <p>We generally welcome contributions for both Core and Base, but it's best check with the Pylon team before making any major changes, because we might already have something planned out that won't fit well with your changes. Hop on our Discord server and have a chat with us if you're interested in doing anything major, or have any questions about contributing :)</p>
 <p>Once you're done with your changes, open a pull request and give some information about what you did and why you did it.</p>
-<h2 id="pylon-master-repository">Pylon master repository</h2>
-<p>Pylon has a master repository that contains both <code>pylon-core</code> and <code>pylon-base</code>. This allows you to run base using your very own home-baked version of core, which allows you to test new features much more easily. This is what the 'How to get started' section used. We recommend you make changes to both base and core using the master repository, and the rest of this guide will assume you're using it.</p>
 <h2 id="tests">Tests</h2>
-<p>Pylon core has a set of integration tests. Tests should only be added for critical functionality such as block storage and recipes.</p>
+<p>Pylon Core has a set of integration tests. Tests should only be added for critical functionality such as block storage and recipes.</p>
+<h2 id="custom-dokka">Custom Dokka</h2>
+<p>Pylon uses a custom version of Dokka to generate Javadocs. This is because the default Dokka output is very buggy and doesn't look very good. Seggan has submitted pull requests to the Dokka project to fix the issues, but they haven't been merged yet, so in the meantime we use a custom version. If you wish to see the "fixed" doc output, here are the steps:
+1. Clone the <code>pylonmc/dokka</code> repository: <code>git clone https://github.com/pylonmc/dokka</code>
+2. Checkout the <code>pylon</code> branch: <code>git checkout pylon</code>
+3. In the root directory, execute <code>./gradlew publishToMavenLocal -Pversion=2.1.0-pylon-SNAPSHOT</code>. Note that as Dokka is a very large project, the first build will take a long time. On Seggan's decent-ish laptop, the first run took about 10 minutes. Subsequent builds will be much faster as long s you don't delete the build cache.
+4. Now, in the Pylon master project, execute <code>./gradlew :pylon-core:pylon-core:dokkaGenerate -PusePylonDokka=true</code>. The generated output will be under <code>pylon/pylon-core/pylon-core/build/dokka</code>.</p>
 <h2 id="im-stuck-what-next">I'm stuck, what next?</h2>
 <ol>
 <li>If it's Pylon specific, check if it's in the docs. If it's not Pylon specific, google it.</li>
@@ -1317,13 +1343,13 @@
         
         
           
-          <a href="../contributing-to-docs/" class="md-footer__link md-footer__link--next" aria-label="Next: Contributing to docs">
+          <a href="../master-project/" class="md-footer__link md-footer__link--next" aria-label="Next: The Pylon Master Project">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Contributing to docs
+                The Pylon Master Project
               </div>
             </div>
             <div class="md-footer__button md-icon">
