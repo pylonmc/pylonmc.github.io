@@ -1233,12 +1233,33 @@
 </code></pre></div></td></tr></table></div>
 <code>pylon-base</code> contains the Base addon for Pylon. <code>pylon-core</code> has four subprojects: <code>dokka-plugin</code>, <code>nms</code>, <code>pylon-core</code>, and <code>test</code>. <code>dokka-plugin</code> contains a custom Dokka plugin we use to help with formatting Javadocs. <code>nms</code> contains all the Pylon Core code that touches server internals. It is in a separate subproject to effectively isolate potentially unstable code from the rest of the project. <code>pylon-core</code> contains the main Pylon Core code, and <code>test</code> contains the integration tests for Pylon Core.</p>
 <h2 id="tasks">Tasks</h2>
-<p>The Pylon master project contains a few tasks that are useful for development:
-| Task | Alias | Description |
-|------|-------|-------------|
-| <code>runServer</code> | <code>runSnapshotServer</code> | Runs a Minecraft server with the current version of Pylon Base and Pylon Core |
-| <code>:pylon-base:runServer</code> | <code>runStableServer</code> | Runs a Minecraft server with the latest stable version of Pylon Core and the current version of Pylon Base |
-| <code>:pylon-core:test:runServer</code> | <code>runLiveTests</code> | Executes the integration tests for Pylon Core |</p>
+<p>The Pylon master project contains a few tasks that are useful for development:</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Alias</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>runServer</code></td>
+<td><code>runSnapshotServer</code></td>
+<td>Runs a Minecraft server with the current version of Pylon Base and Pylon Core</td>
+</tr>
+<tr>
+<td><code>:pylon-base:runServer</code></td>
+<td><code>runStableServer</code></td>
+<td>Runs a Minecraft server with the latest stable version of Pylon Core and the current version of Pylon Base</td>
+</tr>
+<tr>
+<td><code>:pylon-core:test:runServer</code></td>
+<td><code>runLiveTests</code></td>
+<td>Executes the integration tests for Pylon Core</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
 <p>If you are launching the tasks using the aliases from IntelliJ and attach the debugger, you will notice that it will not work. I have no idea why this happens. In order to successfully attach the debugger, you need to run the actual tasks, not the aliases. For example, instead of running <code>runSnapshotServer</code>, run <code>runServer</code>.</p>
