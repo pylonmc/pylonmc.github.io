@@ -1283,11 +1283,13 @@
 <h2 id="tests">Tests</h2>
 <p>Pylon Core has a set of integration tests. Tests should only be added for critical functionality such as block storage and recipes.</p>
 <h2 id="custom-dokka">Custom Dokka</h2>
-<p>Pylon uses a custom version of Dokka to generate Javadocs. This is because the default Dokka output is very buggy and doesn't look very good. Seggan has submitted pull requests to the Dokka project to fix the issues, but they haven't been merged yet, so in the meantime we use a custom version. If you wish to see the "fixed" doc output, here are the steps:
-1. Clone the <code>pylonmc/dokka</code> repository: <code>git clone https://github.com/pylonmc/dokka</code>
-2. Checkout the <code>pylon</code> branch: <code>git checkout pylon</code>
-3. In the root directory, execute <code>./gradlew publishToMavenLocal -Pversion=2.1.0-pylon-SNAPSHOT</code>. Note that as Dokka is a very large project, the first build will take a long time. On Seggan's decent-ish laptop, the first run took about 10 minutes. Subsequent builds will be much faster as long s you don't delete the build cache.
-4. Now, in the Pylon master project, execute <code>./gradlew :pylon-core:pylon-core:dokkaGenerate -PusePylonDokka=true</code>. The generated output will be under <code>pylon/pylon-core/pylon-core/build/dokka</code>.</p>
+<p>Pylon uses a custom version of Dokka to generate Javadocs. This is because the default Dokka output is very buggy and doesn't look very good. Seggan has submitted pull requests to the Dokka project to fix the issues, but they haven't been merged yet, so in the meantime we use a custom version. If you wish to see the "fixed" doc output, here are the steps:</p>
+<ol>
+<li>Clone the <code>pylonmc/dokka</code> repository: <code>git clone https://github.com/pylonmc/dokka</code></li>
+<li>Checkout the <code>pylon</code> branch: <code>git checkout pylon</code></li>
+<li>In the root directory, execute <code>./gradlew publishToMavenLocal -Pversion=2.1.0-pylon-SNAPSHOT</code>. Note that as Dokka is a very large project, the first build will take a long time. On Seggan's decent-ish laptop, the first run took about 10 minutes. Subsequent builds will be much faster as long s you don't delete the build cache.</li>
+<li>Now, in the Pylon master project, execute <code>./gradlew :pylon-core:pylon-core:dokkaGenerate -PusePylonDokka=true</code>. The generated output will be under <code>pylon/pylon-core/pylon-core/build/dokka</code>.</li>
+</ol>
 <h2 id="im-stuck-what-next">I'm stuck, what next?</h2>
 <ol>
 <li>If it's Pylon specific, check if it's in the docs. If it's not Pylon specific, google it.</li>
