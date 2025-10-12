@@ -1,3 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>None./</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="None"/>
+    </url>
+    <url>
+        <loc>Nonejavadocs/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonejavadocs/"/>
+    </url>
+    <url>
+        <loc>Nonecontributing/contributing-to-docs/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecontributing/contributing-to-docs/"/>
+    </url>
+    <url>
+        <loc>Nonecontributing/getting-started/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecontributing/getting-started/"/>
+    </url>
+    <url>
+        <loc>Nonecontributing/master-project/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecontributing/master-project/"/>
+    </url>
+    <url>
+        <loc>Nonecreating-addons/getting-started/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecreating-addons/getting-started/"/>
+    </url>
+    <url>
+        <loc>Nonecreating-addons/item_ux/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecreating-addons/item_ux/"/>
+    </url>
+    <url>
+        <loc>Nonecreating-addons/custom-items/adding-a-custom-item/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecreating-addons/custom-items/adding-a-custom-item/"/>
+    </url>
+    <url>
+        <loc>Nonecreating-addons/custom-items/advanced-lore/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecreating-addons/custom-items/advanced-lore/"/>
+    </url>
+    <url>
+        <loc>Nonecreating-addons/custom-items/full-code/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecreating-addons/custom-items/full-code/"/>
+    </url>
+    <url>
+        <loc>Nonecreating-addons/custom-items/making-items-configurable/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecreating-addons/custom-items/making-items-configurable/"/>
+    </url>
+    <url>
+        <loc>Nonecreating-addons/custom-items/persistent-data/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecreating-addons/custom-items/persistent-data/"/>
+    </url>
+    <url>
+        <loc>Nonecreating-addons/custom-items/practice-tasks/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecreating-addons/custom-items/practice-tasks/"/>
+    </url>
+    <url>
+        <loc>Nonecreating-addons/your-first-item/adding-an-item/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecreating-addons/your-first-item/adding-an-item/"/>
+    </url>
+    <url>
+        <loc>Nonecreating-addons/your-first-item/adding-name-and-lore/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecreating-addons/your-first-item/adding-name-and-lore/"/>
+    </url>
+    <url>
+        <loc>Nonecreating-addons/your-first-item/full-code/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecreating-addons/your-first-item/full-code/"/>
+    </url>
+    <url>
+        <loc>Nonecreating-addons/your-first-item/practice-tasks/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecreating-addons/your-first-item/practice-tasks/"/>
+    </url>
+    <url>
+        <loc>Nonecreating-addons/your-first-item/running-your-addon/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecreating-addons/your-first-item/running-your-addon/"/>
+    </url>
+    <url>
+        <loc>Noneinstallation/commands-and-permissions/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneinstallation/commands-and-permissions/"/>
+    </url>
+    <url>
+        <loc>Noneinstallation/installing-pylon/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneinstallation/installing-pylon/"/>
+    </url>
+    <url>
+        <loc>Noneinstallation/list-of-addons/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneinstallation/list-of-addons/"/>
+    </url>
+    <url>
+        <loc>Nonereference/fluids/</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonereference/fluids/"/>
+    </url>
 </urlset>
