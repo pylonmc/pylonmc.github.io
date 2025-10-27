@@ -502,6 +502,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#other-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other permissions
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1194,6 +1203,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#other-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other permissions
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1220,32 +1238,19 @@
 <tr>
 <th>Command</th>
 <th>Permission</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>/py</code></td>
 <td><code>pylon.command.guide</code></td>
+<td>Opens the Pylon guide</td>
 </tr>
 <tr>
 <td><code>/py guide</code></td>
 <td><code>pylon.command.guide</code></td>
-</tr>
-<tr>
-<td><code>/py research discover &lt;research&gt;</code></td>
-<td><code>pylon.command.research.discover</code></td>
-</tr>
-<tr>
-<td><code>/py research list</code></td>
-<td><code>pylon.command.research.list</code></td>
-</tr>
-<tr>
-<td><code>/py research points me</code></td>
-<td><code>pylon.command.research.points.get.self</code></td>
-</tr>
-<tr>
-<td><code>/py waila</code></td>
-<td><code>pylon.command.waila</code></td>
+<td>Gives you the Pylon guide</td>
 </tr>
 </tbody>
 </table>
@@ -1255,56 +1260,93 @@
 <tr>
 <th>Command</th>
 <th>Permission</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td><code>/py confetti &lt;amount&gt; [speed] [lifetime]</code></td>
+<td><code>pylon.command.confetti</code></td>
+<td>Spawns confetti particles</td>
+</tr>
+<tr>
 <td><code>/py debug</code></td>
 <td><code>pylon.command.debug</code></td>
+<td>Gives you the debug item, which can be used to view Pylon block/entity data and forcibly remove Pylon blocks/entities</td>
+</tr>
+<tr>
+<td><code>/py exposerecipeconfig &lt;addon&gt; &lt;recipe_type&gt;</code></td>
+<td><code>pylon.command.exposerecipeconfig</code></td>
+<td>Allows recipes to be edited for a specific recipe stype. Doing this will prevent any recipes of the given type from being automatically updated, so use with caution!</td>
 </tr>
 <tr>
 <td><code>/py give &lt;player&gt; &lt;item&gt; [amount]</code></td>
 <td><code>pylon.command.give</code></td>
+<td>Gives a player a Pylon item</td>
 </tr>
 <tr>
 <td><code>/py key</code></td>
 <td><code>pylon.command.key</code></td>
+<td>Shows you the key of the Pylon item you're holding in your hand</td>
+</tr>
+<tr>
+<td><code>/py research add &lt;player&gt; &lt;research&gt;</code></td>
+<td><code>pylon.command.research.add</code></td>
+<td>Adds the given research to a player</td>
+</tr>
+<tr>
+<td><code>/py research addall &lt;player&gt;</code></td>
+<td><code>pylon.command.research.addall</code></td>
+<td>Adds all researches to a player</td>
+</tr>
+<tr>
+<td><code>/py research remove &lt;player&gt; &lt;research&gt;</code></td>
+<td><code>pylon.command.research.remove</code></td>
+<td>Removes the given research from a player</td>
+</tr>
+<tr>
+<td><code>/py research points add &lt;player&gt; &lt;amount&gt;</code></td>
+<td><code>pylon.command.research.points.add</code></td>
+<td>Adds research points to a player</td>
 </tr>
 <tr>
 <td><code>/py research points get &lt;player&gt;</code></td>
 <td><code>pylon.command.research.points.get</code></td>
-</tr>
-<tr>
-<td><code>/py research add &lt;player&gt; &lt;research&gt;</code></td>
-<td><code>pylon.command.research.modify</code></td>
-</tr>
-<tr>
-<td><code>/py research addall &lt;player&gt;</code></td>
-<td><code>pylon.command.research.modify</code></td>
-</tr>
-<tr>
-<td><code>/py research remove &lt;player&gt; &lt;research&gt;</code></td>
-<td><code>pylon.command.research.modify</code></td>
-</tr>
-<tr>
-<td><code>/py research points add &lt;player&gt; &lt;amount&gt;</code></td>
-<td><code>pylon.command.research.points.set</code></td>
+<td>Shows you the number of research points a player has</td>
 </tr>
 <tr>
 <td><code>/py research points set &lt;player&gt; &lt;amount&gt;</code></td>
 <td><code>pylon.command.research.points.set</code></td>
+<td>Sets the number of research points a player has</td>
 </tr>
 <tr>
 <td><code>/py research points subtract &lt;player&gt; &lt;amount&gt;</code></td>
-<td><code>pylon.command.research.points.set</code></td>
+<td><code>pylon.command.research.points.subtract</code></td>
+<td>Removes research points from a player</td>
 </tr>
 <tr>
-<td><code>/py setblock &lt;block&gt;</code></td>
+<td><code>/py setblock &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;block&gt;</code></td>
 <td><code>pylon.command.setblock</code></td>
+<td>Sets the given Pylon block at the coordinates provided</td>
+</tr>
+</tbody>
+</table>
+<h2 id="other-permissions">Other permissions</h2>
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pylon.guide.cheat</code></td>
+<td>Allows you to use drop, ctrl+drop, or middle click to cheat in items from the Pylon guide</td>
 </tr>
 <tr>
-<td><code>/py confetti &lt;amount&gt;</code></td>
-<td><code>pylon.command.confetti</code></td>
+<td><code>pylon.guide.view_admin_pages</code></td>
+<td>Allows you to see admin-only guide pages</td>
 </tr>
 </tbody>
 </table>
