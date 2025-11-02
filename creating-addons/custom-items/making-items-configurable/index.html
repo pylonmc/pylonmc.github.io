@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4af4bdda.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -548,7 +548,7 @@
   
   
   <span class="md-ellipsis">
-    Your first item
+    The basics
     
   </span>
   
@@ -559,7 +559,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
-            Your first item
+            The basics
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -570,7 +570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../your-first-item/adding-an-item/" class="md-nav__link">
+      <a href="../../the-basics/adding-an-item/" class="md-nav__link">
         
   
   
@@ -593,7 +593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../your-first-item/running-your-addon/" class="md-nav__link">
+      <a href="../../the-basics/running-your-addon/" class="md-nav__link">
         
   
   
@@ -616,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../your-first-item/adding-name-and-lore/" class="md-nav__link">
+      <a href="../../the-basics/adding-name-and-lore/" class="md-nav__link">
         
   
   
@@ -639,7 +639,53 @@
   
   
     <li class="md-nav__item">
-      <a href="../../your-first-item/full-code/" class="md-nav__link">
+      <a href="../../the-basics/adding-a-recipe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Adding a recipe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../the-basics/adding-a-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Adding a research
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../the-basics/full-code/" class="md-nav__link">
         
   
   
@@ -662,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../your-first-item/practice-tasks/" class="md-nav__link">
+      <a href="../../the-basics/practice-tasks/" class="md-nav__link">
         
   
   
@@ -827,9 +873,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-the-config-file" class="md-nav__link">
+  <a href="#reading-the-config-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Using the config file
+      Reading the config file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-values-we-read-from-the-config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the values we read from the config file
     </span>
   </a>
   
@@ -880,6 +935,29 @@
   
   <span class="md-ellipsis">
     Persistent data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../a-complete-example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A complete example
     
   </span>
   
@@ -1206,9 +1284,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-the-config-file" class="md-nav__link">
+  <a href="#reading-the-config-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Using the config file
+      Reading the config file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-the-values-we-read-from-the-config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the values we read from the config file
     </span>
   </a>
   
@@ -1235,16 +1322,15 @@
 
 <h1 id="making-items-configurable">Making items configurable</h1>
 <h2 id="overview">Overview</h2>
-<p>Let's add a config so server owners can change how long the baguette flamethrower sets entities on fire for.</p>
-<hr />
-<h2 id="creating-the-config-file">Creating the config file</h2>
-<p>If you look inside your server's Pylon settings directory (<code>run/plugins/PylonCore/settings/pylonbase</code>) you'll see that every item and every block has its own config file.</p>
+<p>Items can have configs associated with them. If you look inside your server's Pylon settings directory (<code>run/plugins/PylonCore/settings/pylonbase</code>) you'll see that every item and every block has its own config file.</p>
 <p>For example, <code>bandage.yml</code> contains:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">bandage.yml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nt">consume-seconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.25</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nt">heal-amount</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4.0</span>
 </code></pre></div></td></tr></table></div>
-<p>We want to add our own config file which lets you choose how long the baguette flamethrower sets entities on fire for.</p>
+<hr />
+<h2 id="creating-the-config-file">Creating the config file</h2>
+<p>Suppose we want to add our own config file which lets you choose how long the baguette flamethrower sets entities on fire for.</p>
 <p>Create a new file <code>resources/settings/baguette_flamethrower.yml</code> and add the following:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">baguette_flamethrower.yml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nt">burn-time-ticks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">40</span>
 </code></pre></div></td></tr></table></div>
@@ -1252,11 +1338,11 @@
 <p class="admonition-title">Best practice</p>
 <p>When your config option is a quantity, include the unit in the name. If we just called it <code>burn-time</code>, users might not know that it's in ticks, and assume it's in seconds or something else.</p>
 </div>
-<p>Pylon will automatically copy all of your settings files into <code>run/plugins/PylonCore/settings/&lt;your-addon-name&gt;</code> when the settings file is first used.</p>
+<p>Pylon will automatically copy all of your settings files into <code>run/plugins/PylonCore/settings/&lt;your-addon-name&gt;</code> when the settings file is first used, so that server owners can configure items.</p>
 <hr />
-<h2 id="using-the-config-file">Using the config file</h2>
-<p>To read the <code>burn-time-ticks</code> value from the config file, we can use <code>getSettings().getOrThrow(...)</code>:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">Kotlin</label></div>
+<h2 id="reading-the-config-file">Reading the config file</h2>
+<p>To read the <code>burn-time-ticks</code> value from the config file, we can use <code>getSettings().getOrThrow(...)</code>. <code>getSettings()</code> will just return the config with the same name as the item key - in this case <code>flamethrower_baguette</code>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">BaguetteFlamethrower.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
@@ -1271,7 +1357,7 @@
 <span class="normal"><a href="#__codelineno-2-10">10</a></span>
 <span class="normal"><a href="#__codelineno-2-11">11</a></span>
 <span class="normal"><a href="#__codelineno-2-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BaguetteFlamethrower</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PylonItem</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">PylonItemEntityInteractor</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="hll"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">burnTimeTicks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getSettings</span><span class="p">().</span><span class="na">getOrThrow</span><span class="p">(</span><span class="s">&quot;burn-time-ticks&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="hll"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">burnTimeTicks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getSettings</span><span class="p">().</span><span class="na">getOrThrow</span><span class="p">(</span><span class="s">&quot;burn-time-ticks&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ConfigAdapter</span><span class="p">.</span><span class="na">INT</span><span class="p">);</span>
 </span><a id="__codelineno-2-3" name="__codelineno-2-3"></a>
 <a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">BaguetteFlamethrower</span><span class="p">(</span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">ItemStack</span><span class="w"> </span><span class="n">stack</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">stack</span><span class="p">);</span>
@@ -1283,12 +1369,11 @@
 <a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<div class="admonition question">
-<p class="admonition-title">How does Pylon know which config file to use?</p>
-<p>Config files are actually per <strong>key</strong>, not per item. When calling <code>getSettings()</code>, all this does is take the item's key and find the settings file for it! It's just a shorthand for <code>Settings.get(getKey())</code>. If you used <code>Settings.get(new NamespacedKey(MyAddon.getInstance(), "buffoon"))</code> then the <code>buffoon.yml</code> settings file would be read instead.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Kotlin</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
 </div>
 </div>
-<div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">BaguetteFlamethrower.kt</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
 <span class="normal"><a href="#__codelineno-3-3">3</a></span>
@@ -1296,26 +1381,26 @@
 <span class="normal"><a href="#__codelineno-3-5">5</a></span>
 <span class="normal"><a href="#__codelineno-3-6">6</a></span>
 <span class="normal"><a href="#__codelineno-3-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">BaguetteFlamethrower</span><span class="p">(</span><span class="n">stack</span><span class="p">:</span><span class="w"> </span><span class="n">ItemStack</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">PylonItem</span><span class="p">(</span><span class="n">stack</span><span class="p">),</span><span class="w"> </span><span class="n">PylonItemEntityInteractor</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="hll"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">burnTimeTicks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">settings</span><span class="p">.</span><span class="na">getOrThrow</span><span class="p">(</span><span class="s">&quot;burn-time-ticks&quot;</span><span class="p">,</span><span class="w"> </span><span class="kt">Int</span><span class="o">::</span><span class="n">class</span><span class="p">.</span><span class="na">java</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="hll"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">burnTimeTicks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">settings</span><span class="p">.</span><span class="na">getOrThrow</span><span class="p">(</span><span class="s">&quot;burn-time-ticks&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ConfigAdapter</span><span class="p">.</span><span class="na">INT</span><span class="p">)</span>
 </span><a id="__codelineno-3-3" name="__codelineno-3-3"></a>
 <a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onUsedToRightClickEntity</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">PlayerInteractEntityEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="na">rightClicked</span><span class="p">.</span><span class="na">fireTicks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">40</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
 <div class="admonition question">
 <p class="admonition-title">How does Pylon know which config file to use?</p>
 <p>Config files are actually per <strong>key</strong>, not per item. When accessing <code>settings</code>, all this does is take the item's key and find the settings file for it! It's just a shorthand for <code>Settings.get(key)</code>. If you used <code>Settings.get(NamespacedKey(MyAddon.instance, "buffoon"))</code> then the <code>buffoon.yml</code> settings file would be read instead.</p>
 </div>
-</div>
-</div>
-</div>
-<div class="admonition question">
-<p class="admonition-title">Why are we using <code>getOrThrow</code> instead of <code>get</code>?</p>
-<p>Settings also have a <code>get</code> method. This method just returns null if the key was not found, so it should only be used where you don't necessarily <em>need</em> the key. If you use <code>getOrThrow</code>, a nice exception will be thrown with some information on what key is missing and where.</p>
-</div>
+<p>Settings also have a <code>get</code> method. This method just returns null if the key was not found. If you use <code>getOrThrow</code>, a nice exception will be thrown with some information on what key is missing and where.</p>
+<p>When calling <code>get</code> or <code>getOrThrow</code>, we have to supply a ConfigAdapter. This is a class that contains instructions on how to exactly read a value from a config file.</p>
+<p>!!! You can find a list of config adapters <a href="TODO">here</a></p>
+<h2 id="using-the-values-we-read-from-the-config-file">Using the values we read from the config file</h2>
 <p>And now we can use that value when setting entities on fire!</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">Kotlin</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">Kotlin</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">BaguetteFlamethrower.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
@@ -1330,7 +1415,7 @@
 <span class="normal"><a href="#__codelineno-4-10">10</a></span>
 <span class="normal"><a href="#__codelineno-4-11">11</a></span>
 <span class="normal"><a href="#__codelineno-4-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BaguetteFlamethrower</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PylonItem</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">PylonItemEntityInteractor</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">burnTimeTicks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getSettings</span><span class="p">().</span><span class="na">getOrThrow</span><span class="p">(</span><span class="s">&quot;burn-time-ticks&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">burnTimeTicks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getSettings</span><span class="p">().</span><span class="na">getOrThrow</span><span class="p">(</span><span class="s">&quot;burn-time-ticks&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ConfigAdapter</span><span class="p">.</span><span class="na">INT</span><span class="p">);</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3"></a>
 <a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">BaguetteFlamethrower</span><span class="p">(</span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">ItemStack</span><span class="w"> </span><span class="n">stack</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">stack</span><span class="p">);</span>
@@ -1351,7 +1436,7 @@
 <span class="normal"><a href="#__codelineno-5-5">5</a></span>
 <span class="normal"><a href="#__codelineno-5-6">6</a></span>
 <span class="normal"><a href="#__codelineno-5-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">BaguetteFlamethrower</span><span class="p">(</span><span class="n">stack</span><span class="p">:</span><span class="w"> </span><span class="n">ItemStack</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">PylonItem</span><span class="p">(</span><span class="n">stack</span><span class="p">),</span><span class="w"> </span><span class="n">PylonItemEntityInteractor</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">burnTimeTicks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">settings</span><span class="p">.</span><span class="na">getOrThrow</span><span class="p">(</span><span class="s">&quot;burn-time-ticks&quot;</span><span class="p">,</span><span class="w"> </span><span class="kt">Int</span><span class="o">::</span><span class="n">class</span><span class="p">.</span><span class="na">java</span><span class="p">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">burnTimeTicks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">settings</span><span class="p">.</span><span class="na">getOrThrow</span><span class="p">(</span><span class="s">&quot;burn-time-ticks&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ConfigAdapter</span><span class="p">.</span><span class="na">INT</span><span class="p">)</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3"></a>
 <a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="kd">override</span><span class="w"> </span><span class="kd">fun</span><span class="w"> </span><span class="nf">onUsedToRightClickEntity</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="w"> </span><span class="n">PlayerInteractEntityEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="hll"><span class="w">        </span><span class="n">event</span><span class="p">.</span><span class="na">rightClicked</span><span class="p">.</span><span class="na">fireTicks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">burnTimeTicks</span>
@@ -1361,10 +1446,10 @@
 </div>
 </div>
 </div>
-<p>Try changing the config value, and the burn time should change with it.</p>
+<p>If you change the config value, the burn time should change with it.</p>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
-<p>The run server task deletes everything inside the <code>plugins</code> folder whenever it's run, meaning any changes you make to your new config there will be overwritten. Instead, just try changing the default value - or run the server manually so the <code>plugins</code> folder isn't deleted when the server restarts.</p>
+<p>When testing configs, keep in mind that the run server task deletes everything inside the <code>plugins</code> folder whenever it's run, meaning any changes you make to your new config there will be overwritten. Instead, just try changing the default value - or run the server manually so the <code>plugins</code> folder isn't deleted when the server restarts.</p>
 </div>
 
 
@@ -1444,8 +1529,7 @@
   
 </div>
       
-        
-<div class="md-social">
+        <div class="md-social">
   
     
     
@@ -1483,10 +1567,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
       
         <script src="../../../js/open_in_new_tab.js"></script>
       

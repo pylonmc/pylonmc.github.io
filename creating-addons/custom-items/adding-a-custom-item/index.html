@@ -13,14 +13,14 @@
       
       
       
-        <link rel="prev" href="../../your-first-item/practice-tasks/">
+        <link rel="prev" href="../../the-basics/practice-tasks/">
       
       
         <link rel="next" href="../making-items-configurable/">
       
       
       <link rel="icon" href="../../../img/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4af4bdda.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -548,7 +548,7 @@
   
   
   <span class="md-ellipsis">
-    Your first item
+    The basics
     
   </span>
   
@@ -559,7 +559,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
-            Your first item
+            The basics
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -570,7 +570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../your-first-item/adding-an-item/" class="md-nav__link">
+      <a href="../../the-basics/adding-an-item/" class="md-nav__link">
         
   
   
@@ -593,7 +593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../your-first-item/running-your-addon/" class="md-nav__link">
+      <a href="../../the-basics/running-your-addon/" class="md-nav__link">
         
   
   
@@ -616,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../your-first-item/adding-name-and-lore/" class="md-nav__link">
+      <a href="../../the-basics/adding-name-and-lore/" class="md-nav__link">
         
   
   
@@ -639,7 +639,53 @@
   
   
     <li class="md-nav__item">
-      <a href="../../your-first-item/full-code/" class="md-nav__link">
+      <a href="../../the-basics/adding-a-recipe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Adding a recipe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../the-basics/adding-a-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Adding a research
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../the-basics/full-code/" class="md-nav__link">
         
   
   
@@ -662,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../your-first-item/practice-tasks/" class="md-nav__link">
+      <a href="../../the-basics/practice-tasks/" class="md-nav__link">
         
   
   
@@ -904,6 +950,29 @@
   
   <span class="md-ellipsis">
     Persistent data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../a-complete-example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A complete example
     
   </span>
   
@@ -1283,10 +1352,9 @@
 
 <h1 id="adding-a-custom-item">Adding a custom item</h1>
 <h2 id="overview">Overview</h2>
-<p>So far, we've created a 'custom' item in the sense that we've changed the amount of hunger filled up by the baguette from 5 to 6. But what if we want to, for example, be able to right click entities with the baguette to set them on fire? There's no inbuilt way to do this like there was with food. We'll have to write some code to do this for us.</p>
+<p>This section describes how to attach custom behaviour to an item. We'll demonstrate this by creating a baguette flamethrower which sets entities on fire when they are right clicked.</p>
 <hr />
 <h2 id="the-baguette-flamethrower">The baguette flamethrower</h2>
-<p>To illustrate this, let's create a new 'baguette flamethrower' item.</p>
 <h3 id="creating-a-normal-item">Creating a 'normal item'</h3>
 <p>Let's start by making a 'normal' item, like we did in the previous chapter.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">Kotlin</label></div>
@@ -1329,7 +1397,7 @@
 </code></pre></div></td></tr></table></div>
 <h3 id="creating-a-custom-item-class">Creating a custom item class</h3>
 <p>Next, we'll add the code to set entities on fire.</p>
-<p>In order to do this, we can create a custom <code>BaguetteFlamethrower</code> class. All Pylon item classes must extend <a href="https://pylonmc.github.io/pylon-core/docs/javadoc/io/github/pylonmc/pylon/core/item/PylonItem.html">PylonItem</a>.</p>
+<p>In order to do this, we must create a custom <code>BaguetteFlamethrower</code> class. All Pylon item classes must extend <a href="https://pylonmc.github.io/pylon-core/docs/javadoc/io/github/pylonmc/pylon/core/item/PylonItem.html">PylonItem</a>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">Kotlin</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1352,7 +1420,10 @@
 </div>
 </div>
 </div>
-<p>We now want to do something whenever the player right clicks on a block while holding the baguette flamethrower. In order to do this, we can implement <a href="https://pylonmc.github.io/pylon-core/docs/javadoc/io/github/pylonmc/pylon/core/item/base/PylonItemEntityInteractor.html">PylonItemEntityInteractor</a> interface. This is a builtin Pylon interface with one method: <code>onUsedToRightClickEntity</code>.</p>
+<p>We now want to run some code when the player right clicks on an entity while holding the baguette flamethrower. In order to do this, we need to implement a Pylon item interface. </p>
+<p>Pylon item interfaces are just interfaces that add different behaviours to items, like running some code when the item is used.</p>
+<p>Here, we need to implement the <a href="https://pylonmc.github.io/pylon-core/docs/javadoc/io/github/pylonmc/pylon/core/item/base/PylonItemEntityInteractor.html">PylonItemEntityInteractor</a> interface. This interface has one method: <code>onUsedToRightClickEntity</code>.</p>
+<p>!!! note You can find a full list of item interfaces <a href="https://pylonmc.github.io/pylon-core/docs/javadoc/io/github/pylonmc/pylon/core/item/base/package-summary.html">here</a>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">Kotlin</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1438,7 +1509,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../your-first-item/practice-tasks/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Practice tasks">
+          <a href="../../the-basics/practice-tasks/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Practice tasks">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1485,8 +1556,7 @@
   
 </div>
       
-        
-<div class="md-social">
+        <div class="md-social">
   
     
     
@@ -1524,10 +1594,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
       
         <script src="../../../js/open_in_new_tab.js"></script>
       
