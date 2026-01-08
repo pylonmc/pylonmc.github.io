@@ -162,4 +162,10 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="Nonereference/fluids/"/>
     </url>
+    <url>
+        <loc>Nonereference/i18n/</loc>
+        <lastmod>2026-01-08</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonereference/i18n/"/>
+    </url>
 </urlset>
