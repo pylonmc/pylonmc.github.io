@@ -127,22 +127,22 @@
         <xhtml:link rel="alternate" hreflang="en" href="Nonecreating-addons/the-basics/running-your-addon/"/>
     </url>
     <url>
-        <loc>Noneinstallation/commands-and-permissions/</loc>
+        <loc>Nonehome/commands-and-permissions/</loc>
         <lastmod>2026-01-08</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneinstallation/commands-and-permissions/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonehome/commands-and-permissions/"/>
     </url>
     <url>
-        <loc>Noneinstallation/installing-pylon/</loc>
+        <loc>Nonehome/installing-pylon/</loc>
         <lastmod>2026-01-08</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneinstallation/installing-pylon/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonehome/installing-pylon/"/>
     </url>
     <url>
-        <loc>Noneinstallation/list-of-addons/</loc>
+        <loc>Nonehome/list-of-addons/</loc>
         <lastmod>2026-01-08</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="Noneinstallation/list-of-addons/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonehome/list-of-addons/"/>
     </url>
     <url>
         <loc>Nonereference/cargo/</loc>
