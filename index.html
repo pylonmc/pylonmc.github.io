@@ -988,7 +988,7 @@
 <h3 id="stability">Stability</h3>
 <ul>
 <li><img alt="⚙" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2699.svg" title=":gear:" /> Easily disable any problematic blocks or items</li>
-<li><img alt="⚙" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2699.svg" title=":gear:" /> Rebar will refuse to start if it detects any configuration issues</li>
+<li><img alt="⚙" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2699.svg" title=":gear:" /> Rebar or Rebar addons will refuse to start if it detects any configuration issues</li>
 <li><img alt="⚙" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2699.svg" title=":gear:" /> Blocks that throw errors will be safely unloaded</li>
 <li><img alt="⚙" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2699.svg" title=":gear:" /> Removing addons is safe, with all the data kept intact and restored if the addon is re-added</li>
 <li><img alt="⚙" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2699.svg" title=":gear:" /> Rebar data is stored <strong>in the world data itself</strong> - no need to keep extra backups</li>
@@ -1003,16 +1003,16 @@
 <h2 id="for-developers"><img alt="⌨" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2328.svg" title=":keyboard:" /> For developers</h2>
 <h3 id="addon-development">Addon development</h3>
 <ul>
-<li><img alt="⚙" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2699.svg" title=":gear:" /> Rebar has first-class addon support; Pylon is an addon!</li>
-<li><img alt="⚙" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2699.svg" title=":gear:" /> Pylon supports addons written in Kotlin</li>
+<li><img alt="⚙" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2699.svg" title=":gear:" /> You can add content by writing a Rebar addon</li>
+<li><img alt="⚙" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2699.svg" title=":gear:" /> Rebar supports addons written in Kotlin</li>
 <li><img alt="⚙" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2699.svg" title=":gear:" /> Blocks, items, recipes, guide pages, fluids, and entities are all easy and intuitive to add</li>
-<li><img alt="⚙" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2699.svg" title=":gear:" /> Rebar/Pylon will have extensive high-level documentation on all the features it has to offer</li>
+<li><img alt="⚙" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/2699.svg" title=":gear:" /> Rebar will have extensive high-level documentation on all the features it has to offer</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Currently, addon development is not supported due to how rapidly Pylon is still changing.</p>
 </div>
 <h3 id="examples">Examples</h3>
-<p>See the following code to get a feel for how Rebar/Pylon works:</p>
+<p>See the following code to get a feel for how Rebar works:</p>
 <table>
 <thead>
 <tr>
@@ -1023,31 +1023,31 @@
 <tbody>
 <tr>
 <td>Portable dustbin</td>
-<td><a href="https://github.com/pylonmc/pylon/blob/master/src/main/java/io/github/pylonmc/pylon/content/tools/PortableDustbin.java">https://github.com/pylonmc/pylon-base/blob/master/src/main/java/io/github/pylonmc/pylon/base/content/tools/PortableDustbin.java</a></td>
+<td><a href="https://github.com/pylonmc/pylon/blob/master/src/main/java/io/github/pylonmc/pylon/content/tools/PortableDustbin.java">https://github.com/pylonmc/pylon/blob/master/src/main/java/io/github/pylonmc/pylon/content/tools/PortableDustbin.java</a></td>
 </tr>
 <tr>
 <td>Fireproof rune</td>
-<td><a href="https://github.com/pylonmc/pylon/blob/master/src/main/java/io/github/pylonmc/pylon/content/tools/FireproofRune.java">https://github.com/pylonmc/pylon-base/blob/master/src/main/java/io/github/pylonmc/pylon/base/content/tools/FireproofRune.java</a></td>
+<td><a href="https://github.com/pylonmc/pylon/blob/master/src/main/java/io/github/pylonmc/pylon/content/tools/FireproofRune.java">https://github.com/pylonmc/pylon/blob/master/src/main/java/io/github/pylonmc/pylon/base/content/tools/FireproofRune.java</a></td>
 </tr>
 <tr>
 <td>Hammer recipe type</td>
-<td><a href="https://github.com/pylonmc/pylon/blob/master/src/main/java/io/github/pylonmc/pylon/recipes/HammerRecipe.java">https://github.com/pylonmc/pylon-base/blob/master/src/main/java/io/github/pylonmc/pylon/base/recipes/HammerRecipe.java</a></td>
+<td><a href="https://github.com/pylonmc/pylon/blob/master/src/main/java/io/github/pylonmc/pylon/recipes/HammerRecipe.java">https://github.com/pylonmc/pylon/blob/master/src/main/java/io/github/pylonmc/pylon/recipes/HammerRecipe.java</a></td>
 </tr>
 <tr>
 <td>Hammer recipe files</td>
-<td><a href="https://github.com/pylonmc/pylon/blob/master/src/main/resources/recipes/pylonbase/hammer.yml">https://github.com/pylonmc/pylon-base/blob/master/src/main/resources/recipes/pylonbase/hammer.yml</a></td>
+<td><a href="https://github.com/pylonmc/pylon/blob/master/src/main/resources/recipes/pylonbase/hammer.yml">https://github.com/pylonmc/pylon/blob/master/src/main/resources/recipes/pylonbase/hammer.yml</a></td>
 </tr>
 <tr>
 <td>Pylon English language file</td>
-<td><a href="https://github.com/pylonmc/pylon/blob/master/src/main/resources/lang/en.yml">https://github.com/pylonmc/pylon-base/blob/master/src/main/resources/lang/en.yml</a></td>
+<td><a href="https://github.com/pylonmc/pylon/blob/master/src/main/resources/lang/en.yml">https://github.com/pylonmc/pylon/blob/master/src/main/resources/lang/en.yml</a></td>
 </tr>
 <tr>
 <td>Press block</td>
-<td><a href="https://github.com/pylonmc/pylon/blob/master/src/main/java/io/github/pylonmc/pylon/content/machines/simple/Press.java">https://github.com/pylonmc/pylon-base/blob/master/src/main/java/io/github/pylonmc/pylon/base/content/machines/simple/Press.java</a></td>
+<td><a href="https://github.com/pylonmc/pylon/blob/master/src/main/java/io/github/pylonmc/pylon/content/machines/simple/Press.java">https://github.com/pylonmc/pylon/blob/master/src/main/java/io/github/pylonmc/pylon/content/machines/simple/Press.java</a></td>
 </tr>
 <tr>
 <td>Hydraulic excavator settings</td>
-<td><a href="https://github.com/pylonmc/pylon/blob/master/src/main/resources/settings/hydraulic_excavator.yml">https://github.com/pylonmc/pylon-base/blob/master/src/main/resources/settings/hydraulic_excavator.yml</a></td>
+<td><a href="https://github.com/pylonmc/pylon/blob/master/src/main/resources/settings/hydraulic_excavator.yml">https://github.com/pylonmc/pylon/blob/master/src/main/resources/settings/hydraulic_excavator.yml</a></td>
 </tr>
 </tbody>
 </table>
