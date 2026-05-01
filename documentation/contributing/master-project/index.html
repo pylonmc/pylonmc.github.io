@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#the-pylon-master-project" class="md-skip">
+        <a href="#the-parallel-dev-repo-project" class="md-skip">
           Skip to content
         </a>
       
@@ -1733,10 +1733,10 @@
   
 
 
-<h1 id="the-pylon-master-project">The Pylon Master Project</h1>
-<p>Pylon has a master repository that contains both <code>pylon-core</code> and <code>pylon-base</code>. This allows you to run base using your very own home-baked version of core, which allows you to test new features much more easily. This is what the 'How to get started' section used. We recommend you make changes to both Base and Core using the master repository, and the rest of this guide will assume you're using it.</p>
+<h1 id="the-parallel-dev-repo-project">The Parallel Dev Repo Project</h1>
+<p>PylonMC has a repositry called: <code>parallel-dev-repo</code>. This allows you to run base using your very own home-baked version of core, which allows you to test new features much more easily. This is what the 'How to get started' section used. We recommend you make changes to both Pylon and Rebar using the repository, and the rest of this guide will assume you're using it.</p>
 <h2 id="project-structure">Project structure</h2>
-<p>The master project is structured as such:
+<p>The project is structured as such:
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
 <span class="normal"><a href="#__codelineno-0-3">3</a></span>
@@ -1744,14 +1744,14 @@
 <span class="normal"><a href="#__codelineno-0-5">5</a></span>
 <span class="normal"><a href="#__codelineno-0-6">6</a></span>
 <span class="normal"><a href="#__codelineno-0-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>pylon/
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    pylon-base/
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    pylon-core/
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>        dokka-plugin/
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>        nms/
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>        pylon-core/
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>        test/
-</code></pre></div></td></tr></table></div>
-<code>pylon-base</code> contains the Base addon for Pylon. <code>pylon-core</code> has four subprojects: <code>dokka-plugin</code>, <code>nms</code>, <code>pylon-core</code>, and <code>test</code>. <code>dokka-plugin</code> contains a custom Dokka plugin we use to help with formatting Javadocs. <code>nms</code> contains all the Pylon Core code that touches server internals. It is in a separate subproject to effectively isolate potentially unstable code from the rest of the project. <code>pylon-core</code> contains the main Pylon Core code, and <code>test</code> contains the integration tests for Pylon Core.</p>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>  src/
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>rebar/
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>  dokka-plugin/
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>  nms/
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>  rebar/
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>  test/
+</code></pre></div></td></tr></table></div></p>
+<p><code>pylon</code> is the base addon for Rebar. <code>rebar</code> has four subprojects: <code>dokka-plugin</code>, <code>nms</code>, <code>rebar</code>, and <code>test</code>. <code>dokka-plugin</code> contains a custom Dokka plugin we use to help with formatting Javadocs. <code>nms</code> contains all the Rebar code that touches server internals. It is in a separate subproject to effectively isolate potentially unstable code from the rest of the project. <code>rebar</code> contains the main Rebar code, and <code>test</code> contains the integration tests for Rebar.</p>
 <h2 id="tasks">Tasks</h2>
 <p>The Pylon master project contains a few tasks that are useful for development:</p>
 <table>
@@ -1766,17 +1766,17 @@
 <tr>
 <td><code>runServer</code></td>
 <td><code>runSnapshotServer</code></td>
-<td>Runs a Minecraft server with the current version of Pylon Base and Pylon Core</td>
+<td>Runs a Minecraft server with the current version of Rebar and Pylon</td>
 </tr>
 <tr>
-<td><code>:pylon-base:runServer</code></td>
+<td><code>:pylon:runServer</code></td>
 <td><code>runStableServer</code></td>
-<td>Runs a Minecraft server with the latest stable version of Pylon Core and the current version of Pylon Base</td>
+<td>Runs a Minecraft server with the latest stable version of Rebar and the current version of Pylon</td>
 </tr>
 <tr>
-<td><code>:pylon-core:test:runServer</code></td>
+<td><code>:rebar:test:runServer</code></td>
 <td><code>runLiveTests</code></td>
-<td>Executes the integration tests for Pylon Core</td>
+<td>Executes the integration tests for Rebar</td>
 </tr>
 </tbody>
 </table>

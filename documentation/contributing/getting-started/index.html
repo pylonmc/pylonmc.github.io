@@ -1800,27 +1800,27 @@
 
 
 <h1 id="getting-started">Getting started</h1>
-<p>Pylon Core is written in <a href="https://kotlinlang.org/">Kotlin</a>, a language similar to Java, but with more modern features and concise syntax. If you know Java, you'll be able to pick up Kotlin very quickly.</p>
-<p>Pylon Base is written in Java.</p>
+<p>Rebar is written in <a href="https://kotlinlang.org/">Kotlin</a>, a language similar to Java, but with more modern features and concise syntax. If you know Java, you'll be able to pick up Kotlin very quickly.</p>
+<p>Pylon is written in Java.</p>
 <h2 id="how-to-get-started">How to get started</h2>
 <ol>
-<li>Clone the <code>pylon</code> repository: <code>git clone https://github.com/pylonmc/pylon</code> (or use a GUI like Github Desktop)</li>
-<li>If you're using IntelliJ, it'll set everything up automatically. If not, run <code>./gradlew</code>. This will clone the <code>pylon-core</code> and <code>pylon-base</code> repositories.</li>
-<li>If you want to submit your changes to the Pylon project, <strong>delete the <code>pylon-core</code> or <code>pylon-base</code> directory (depending on which one you want to contribute to), fork the pylon-core or pylon-base repository, and clone your fork into the same directory.</strong> Otherwise, you won't be able to open a pull request with your changes (unless you're a Pylon developer and have access to the Pylon repositories).</li>
+<li>Clone the <code>parallel-dev-repo</code> repository: <code>git clone https://github.com/pylonmc/parallel-dev-repo</code> (or use a GUI like Github Desktop)</li>
+<li>If you're using IntelliJ, it'll set everything up automatically. If not, run <code>./gradlew</code>. This will clone the <code>rebar</code> and <code>pylon</code> repositories.</li>
+<li>If you want to submit your changes to the master project, <strong>delete the <code>rebar</code> or <code>pylon</code> directory (depending on which one you want to contribute to), fork the rebar or pylon repository, and clone your fork into the same directory.</strong> Otherwise, you won't be able to open a pull request with your changes (unless you're a Rebar/Pylon developer and have access to the Rebar/Pylon repositories).</li>
 </ol>
-<p>See the <a href="../master-project/">Pylon Master Project</a> page for more information about the master repository.</p>
+<p>See the <a href="../master-project/">The Parallel Dev Repo Project</a> page for more information about the master repository.</p>
 <h2 id="submitting-your-contributions">Submitting your contributions</h2>
-<p>We generally welcome contributions for both Core and Base, but it's best check with the Pylon team before making any major changes, because we might already have something planned out that won't fit well with your changes. Hop on our Discord server and have a chat with us if you're interested in doing anything major, or have any questions about contributing :)</p>
+<p>We generally welcome contributions for both Rebar and Pylon, but it's best check with the Pylon team before making any major changes, because we might already have something planned out that won't fit well with your changes. Hop on our Discord server and have a chat with us if you're interested in doing anything major, or have any questions about contributing :)</p>
 <p>Once you're done with your changes, open a pull request and give some information about what you did and why you did it.</p>
 <h2 id="tests">Tests</h2>
-<p>Pylon Core has a set of integration tests. Tests should only be added for critical functionality such as block storage and recipes.</p>
+<p>Rebar has a set of integration tests. Tests should only be added for critical functionality such as block storage and recipes.</p>
 <h2 id="custom-dokka">Custom Dokka</h2>
 <p>Pylon uses a custom version of Dokka to generate Javadocs. This is because the default Dokka output is very buggy and doesn't look very good. Seggan has submitted pull requests to the Dokka project to fix the issues, but they haven't been merged yet, so in the meantime we use a custom version. If you wish to see the "fixed" doc output, here are the steps:</p>
 <ol>
 <li>Clone the <code>pylonmc/dokka</code> repository: <code>git clone https://github.com/pylonmc/dokka</code></li>
 <li>Checkout the <code>pylon</code> branch: <code>git checkout pylon</code></li>
 <li>In the root directory, execute <code>./gradlew publishToMavenLocal -Pversion=2.1.0-pylon-SNAPSHOT</code>. Note that as Dokka is a very large project, the first build will take a long time. On Seggan's decent-ish laptop, the first run took about 10 minutes. Subsequent builds will be much faster as long s you don't delete the build cache.</li>
-<li>Now, in the Pylon master project, execute <code>./gradlew :pylon-core:pylon-core:dokkaGenerate -PusePylonDokka=true</code>. The generated output will be under <code>pylon/pylon-core/pylon-core/build/dokka</code>.</li>
+<li>Now, in the Pylon master project, execute <code>./gradlew :rebar:rebar:dokkaGenerate -PusePylonDokka=true</code>. The generated output will be under <code>pylon/rebar/rebar/build/dokka</code>.</li>
 </ol>
 <h2 id="im-stuck-what-next">I'm stuck, what next?</h2>
 <ol>
