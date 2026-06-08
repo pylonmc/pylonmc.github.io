@@ -73,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#copying-config" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1554,14 +1559,70 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../contributing/master-project/" class="md-nav__link">
+      <a href="../../../contributing/parallel-dev-repo/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    The Pylon Master Project
+    Parallel dev repo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/testing-your-changes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testing your changes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/custom-dokka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom Dokka
   
 
     
@@ -1636,6 +1697,53 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#copying-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copying config
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1656,8 +1764,23 @@
 
   <h1>Config and config section</h1>
 
-<p>As you probably know, in Minecraft plugins, configs are stored in YAML. Normally in Bukkit/Paper, you would use <a href="https://jd.papermc.io/paper/26.1.2/org/bukkit/configuration/file/YamlConfiguration.html">YamlConfiguration</a> and <a href="https://jd.papermc.io/paper/26.1.2/org/bukkit/configuration/ConfigurationSection.html">ConfigurationSection</a> to read a config file. <code>YamlConfiguration</code> and <code>ConfigurationSection</code> have a lot of quirks, lack a lot of useful functionality, and are inflexible. Because of this (well, there are other reasons, described shortly) we did what every developer does when they encounter a problem: create a new level of abstraction. Sorry.</p>
+<p>As you probably know, in Minecraft plugins, configs are stored in YAML. Normally in Bukkit/Paper, you would use <a href="https://jd.papermc.io/paper/26.1.2/org/bukkit/configuration/file/YamlConfiguration.html">YamlConfiguration</a> and <a href="https://jd.papermc.io/paper/26.1.2/org/bukkit/configuration/ConfigurationSection.html">ConfigurationSection</a> to read a config file. <code>YamlConfiguration</code> and <code>ConfigurationSection</code> have a lot of quirks, lack a lot of useful functionality, and are inflexible. Because of this, we did what every developer does when they encounter a problem: create a new level of abstraction. Sorry.</p>
+<p>The config-related things added by Rebar are:
+- <a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/config/Config.html">Config</a>
+- <a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/config/ConfigSection.html">ConfigSection</a>
+- []</p>
+<h2 id="copying-config">Copying config</h2>
 <p>Enter <a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/config/Config.html">Config</a> and <a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/config/ConfigSection.html">ConfigSection</a>. <code>Config</code> is a simple wrapper around <code>YamlConfiguration</code> and <code>ConfigSection</code> is a simple wrapper around <code>ConfigurationSection</code>.</p>
+<p>To read from a <code>ConfigSection</code>, you can use a <code>ConfigAdapter</code>. A <code>ConfigAdapter</code> is just a class which explains how to turn a part of config into a Java/Kotlin value. For example, the <code>ConfigAdapter.INT</code> config adapter allows an integer to be read from a config.</p>
+<h2 id="examples">Examples</h2>
+<p>To make this clearer, here are some examples.</p>
+<h3 id="example-1">Example 1</h3>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pylon/some_config.yml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nt">some-value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nt">some-other-value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hello&quot;</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+</code></pre></div></td></tr></table></div>
 
 
 
