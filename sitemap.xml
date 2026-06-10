@@ -127,6 +127,12 @@
         <xhtml:link rel="alternate" hreflang="en" href="Nonedocumentation/reference/blocks/creating-new-blocks/"/>
     </url>
     <url>
+        <loc>Nonedocumentation/reference/blocks/interface-quick-reference/</loc>
+        <lastmod>2026-06-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonedocumentation/reference/blocks/interface-quick-reference/"/>
+    </url>
+    <url>
         <loc>Nonedocumentation/reference/blocks/interfaces/</loc>
         <lastmod>2026-06-10</lastmod>
         <changefreq>daily</changefreq>

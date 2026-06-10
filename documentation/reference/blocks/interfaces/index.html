@@ -16,7 +16,7 @@
         <link rel="prev" href="../creating-new-blocks/">
       
       
-        <link rel="next" href="../persistent-data/">
+        <link rel="next" href="../interface-quick-reference/">
       
       
         
@@ -1036,21 +1036,38 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#interface-quick-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Interface quick reference
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interface-quick-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interface quick reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1850,17 +1867,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#interface-quick-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Interface quick reference
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1883,13 +1889,20 @@
 
   <h1>Block interfaces</h1>
 
+<div class="admonition info">
+<p class="admonition-title">See the <a href="../interface-quick-reference/">interface quick reference</a> for a list of all available block interfaces.</p>
+</div>
 <p>Rebar has a number of builtin interfaces which add custom behaviour to blocks. For example, there are interfaces which allow you to:</p>
 <ul>
-<li>add fluid buffers (<a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarFluidBufferBlock.html">RebarFluidBufferBlock</a>)</li>
-<li>run code when the block is clicked (<a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarInteractBlock.html">RebarInteractBlock</a>)</li>
-<li>run code when a player jumps on top of a block (<a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarJumpBlock.html">RebarJumpBlock</a>)</li>
+<li>add fluid buffers (<a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/interfaces/FluidBufferRebarBlock.html">FluidBufferRebarBlock</a>)</li>
+<li>run code when the block is clicked (<a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/interfaces/InteractRebarBlockHandler.html">InteractRebarBlockHandler</a>)</li>
+<li>run code when a player jumps on top of a block (<a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/interfaces/JumpRebarBlockHandler.html">JumpRebarBlockHandler</a>)</li>
 <li>...and many many more</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Handlers</p>
+<p>You might notice some interfaces have a <code>handler</code> suffix. This just means that the interface is a proxy for some kind of event (like the <a href="https://jd.papermc.io/paper/26.1.2/org/bukkit/event/player/PlayerInteractEvent.html">PlayerInteractEvent</a>) and implements no or minimal additional logic. The distinction is not too important to understand from an addon developer perspective.</p>
+</div>
 <div class="admonition question">
 <p class="admonition-title">How do I use interface X?</p>
 <ol>
@@ -1899,7 +1912,7 @@
 <li>Ask for help on the Pylon Discord.</li>
 </ol>
 </div>
-<p>For example, suppose you want to spawn particles when the block is right clicked.. You can do this using <a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarInteractBlock.html">RebarInteractBlock</a>:
+<p>For example, suppose you want to spawn particles when the block is right clicked.. You can do this using <a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/interfaces/InteractRebarBlockHandler.html">InteractRebarBlockHandler</a>:
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">ExampleBlock.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
@@ -1919,405 +1932,34 @@
 <span class="normal"><a href="#__codelineno-0-17">17</a></span>
 <span class="normal"><a href="#__codelineno-0-18">18</a></span>
 <span class="normal"><a href="#__codelineno-0-19">19</a></span>
-<span class="normal"><a href="#__codelineno-0-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleBlock</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">RebarBlock</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">RebarInteractBlock</span><span class="w"> </span><span class="p">{</span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ExampleBlock</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">RebarBlock</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">InteractRebarBlockHandler</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a>
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="c1">// ...</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="nd">@Override</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onInteract</span><span class="p">(</span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">PlayerInteractEvent</span><span class="w"> </span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">EventPriority</span><span class="w"> </span><span class="n">priority</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">event</span><span class="p">.</span><span class="na">getAction</span><span class="p">().</span><span class="na">isRightClick</span><span class="p">()</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">                </span><span class="o">||</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getPlayer</span><span class="p">().</span><span class="na">isSneaking</span><span class="p">()</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">                </span><span class="o">||</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getHand</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EquipmentSlot</span><span class="p">.</span><span class="na">HAND</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">        </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">ParticleBuilder</span><span class="p">(</span><span class="n">Particle</span><span class="p">.</span><span class="na">CAMPFIRE_COSY_SMOKE</span><span class="p">)</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">                </span><span class="p">.</span><span class="na">location</span><span class="p">(</span><span class="n">getBlock</span><span class="p">().</span><span class="na">getLocation</span><span class="p">().</span><span class="na">toCenterLocation</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.7</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">                </span><span class="p">.</span><span class="na">count</span><span class="p">(</span><span class="n">smokeCount</span><span class="p">)</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">                </span><span class="p">.</span><span class="na">extra</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="w"> </span><span class="c1">// speed</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">                </span><span class="p">.</span><span class="na">spawn</span><span class="p">();</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="p">}</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="nd">@Override</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onInteractedWith</span><span class="p">(</span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">PlayerInteractEvent</span><span class="w"> </span><span class="n">event</span><span class="p">,</span><span class="w"> </span><span class="nd">@NotNull</span><span class="w"> </span><span class="n">EventPriority</span><span class="w"> </span><span class="n">priority</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">event</span><span class="p">.</span><span class="na">getAction</span><span class="p">().</span><span class="na">isRightClick</span><span class="p">()</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">                </span><span class="o">||</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getPlayer</span><span class="p">().</span><span class="na">isSneaking</span><span class="p">()</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">                </span><span class="o">||</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getHand</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EquipmentSlot</span><span class="p">.</span><span class="na">HAND</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">        </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">        </span><span class="k">new</span><span class="w"> </span><span class="n">ParticleBuilder</span><span class="p">(</span><span class="n">Particle</span><span class="p">.</span><span class="na">CAMPFIRE_COSY_SMOKE</span><span class="p">)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">                </span><span class="p">.</span><span class="na">location</span><span class="p">(</span><span class="n">getBlock</span><span class="p">().</span><span class="na">getLocation</span><span class="p">().</span><span class="na">toCenterLocation</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.7</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">                </span><span class="p">.</span><span class="na">count</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">                </span><span class="p">.</span><span class="na">extra</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="w"> </span><span class="c1">// speed</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">                </span><span class="p">.</span><span class="na">spawn</span><span class="p">();</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div></p>
 <h2 id="the-postload-method">The <code>postLoad</code> method</h2>
 <p>Many block interfaces store persistent data. Instead of forcing you to load and save the data yourself in the <code>write</code> method and your load constructor, all of Rebar's block interfaces have a separate mechanism for saving their data to the block's PDC. A side effect of this is that the block's load constructor is called, none of Rebar's block interfaces will have loaded their data yet. Therefore, as a rule of thumb, you should not call any methods related to block interfaces in your load constructor. Instead, override the <code>postLoad</code> method and do whatever you need to do there instead. The <code>postLoad</code> method will be called after all block interfaces associated with the block have loaded their data.</p>
 <div class="admonition info">
 <p class="admonition-title">postInitialise</p>
 <p>It is also worth noting the <code>postInitialise</code> method, which is the same as <code>postLoad</code> except in that it is also called after the place constructor.</p>
-</div>
-<h2 id="interface-quick-reference">Interface quick reference</h2>
-<div class="grid cards">
-<ul>
-<li>
-<div class="admonition abstract">
-<p class="admonition-title">Interaction interfaces</p>
-<p>Interfaces which do something when a player interacts with them</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Interface</th>
-<th style="text-align: left;">Javadocs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">RebarGuiBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarGuiBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarInteractBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/Rebar(InteractBlock).html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarJumpBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/Rebar(RebarJumpBlock).html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarSneakBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/Rebar(RebarSneakBlock).html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li>
-<div class="admonition abstract">
-<p class="admonition-title">Miscellaneous interfaces</p>
-<p>Interfaces which do not fall into any particular category.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Interface</th>
-<th style="text-align: left;">Javadocs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">RebarBreakHandler</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarBreakHandler.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarDirectionalBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarDirectionalBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarFacadeBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarFacadeBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarFallingBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarFallingBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarTickingBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarSneakBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarUnloadBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarSneakBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarVirtualInventoryBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarVirtualInventoryBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li>
-<div class="admonition abstract">
-<p class="admonition-title">Logistics interfaces</p>
-<p>Interfaces which allow your block to interact with logistic systems, including cargo.</p>
-<p>If you want your machine to be compatible with cargo inserters/extractors, you need to implement <a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarLogisticBlock.html">RebarLogisticBlock</a>.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Interface</th>
-<th style="text-align: left;">Javadocs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">RebarCargoBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarCargoBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarLogisticBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarLogisticBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li>
-<div class="admonition abstract">
-<p class="admonition-title">Fluid interfaces</p>
-<p>Interfaces which allow your block to interact with the fluid system.</p>
-<p>You should use <code>RebarFluidBufferBlock</code> and <code>RebarFluidTank</code> unless necessary. The <code>RebarFluidBlock</code> interface is quite abstract and designed to be as flexible as possible, requiring your machine to implement its own fluid storage logic.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Interface</th>
-<th style="text-align: left;">Javadocs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">RebarFluidBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarFluidBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarFluidBufferBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarFluidBufferBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarFluidTank</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarFluidTank.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li>
-<div class="admonition abstract">
-<p class="admonition-title">Processor interfaces</p>
-<p>Interfaces which keep track of a process, such as the amount of fuel or the progress of a recipe.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Interface</th>
-<th style="text-align: left;">Javadocs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">RebarProcessor</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarProcessor.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarRecipeProcessor</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarRecipeProcessor.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li>
-<div class="admonition abstract">
-<p class="admonition-title">Multiblock interfaces</p>
-<p>Interfaces which turn your block into a multiblock.</p>
-<p>Most multiblocks you create can use <a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarSimpleMultiblock.html">RebarSimpleMultiblock</a>. For more complex multiblocks, you can [RebarMultiblock], but this class is designed to be as flexible as possible and so is very barebones - it does not come with ghost blocks, does not account for rotation, etc.</p>
-<p>Due to the way multiblock work under the hood, there is almost zero performance cost associated with them (contrary to what you may expect). Even extremely large multiblocks are very performance-friendly.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Interface</th>
-<th style="text-align: left;">Javadocs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">RebarMultiblock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarMultiblock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarSimpleMultiblock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarSimpleMultiblock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li>
-<div class="admonition abstract">
-<p class="admonition-title">Entity interfaces</p>
-<p>Interfaces which interact with entities in some way.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Interface</th>
-<th style="text-align: left;">Javadocs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">RebarEntityChangedBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarEntityChangedBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarEntityHolderBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarEntityHolderBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li>
-<div class="admonition abstract">
-<p class="admonition-title">Culling interfaces</p>
-<p>Interfaces which allow your block to interact with Rebar's culling system.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Interface</th>
-<th style="text-align: left;">Javadocs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">RebarCulledBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarCulledBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarGroupCulledBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarGroupCulledBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarEntityCulledBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarEntityCulledBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarEntityGroupCulledBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarEntityGroupCulledBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li>
-<div class="admonition abstract">
-<p class="admonition-title">Vanilla interfaces</p>
-<p>Interfaces which expose functionality of vanilla blocks. For example, if you add a block which is a beacon and want to run some code when the beacon is deactivated, you could use RebarBeacon.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Interface</th>
-<th style="text-align: left;">Javadocs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">RebarBeacon</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarBeacon.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarBell</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarBell.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarBrewingStand</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarBrewingStand.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarCampfire</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarCampfire.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarCauldron</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarCauldron.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarComposter</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarComposter.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarCopperBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarCopperBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarCrafter</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarCrafter.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarDispenser</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarDispenser.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarEnchantingTable</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarEnchantingTable.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarFlowerPot</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarFlowerPot.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarFurnace</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarFurnace.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarGrowable</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarGrowable.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarHopper</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarHopper.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarJobBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarJobBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarLeaf</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarLeaf.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarLectern</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarLectern.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarNoJobBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarNoJobBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarNoteBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarNoteBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarNoVanillaContainerBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarNoVanillaContainerBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarPiston</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarPiston.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarRedstoneBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarRedstoneBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarShearable</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarShearable.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarSign</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarSign.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarSponge</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarSponge.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarTargetBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarTargetBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarTNT</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarTNT.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarVault</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarVault.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-<tr>
-<td style="text-align: center;">RebarVanillaContainerBlock</td>
-<td style="text-align: left;"><a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/block/base/RebarVanillaContainerBlock.html">Javadocs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-</ul>
 </div>
 
 
@@ -2367,13 +2009,13 @@
         
         
           
-          <a href="../persistent-data/" class="md-footer__link md-footer__link--next" aria-label="Next: Persistent data">
+          <a href="../interface-quick-reference/" class="md-footer__link md-footer__link--next" aria-label="Next: Interface quick reference">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Persistent data
+                Interface quick reference
               </div>
             </div>
             <div class="md-footer__button md-icon">
