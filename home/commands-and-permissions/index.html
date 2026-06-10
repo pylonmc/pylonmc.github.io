@@ -248,6 +248,25 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../progress/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Progress
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -588,34 +607,6 @@
     
   
     Placeholders
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../progress/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Documentation progress
   
 
     
@@ -1854,6 +1845,33 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../progress/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Progress
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1982,6 +2000,16 @@
 <td>Allows recipes to be edited for a specific recipe stype. Doing this will prevent any recipes of the given type from being automatically updated, so use with caution!</td>
 </tr>
 <tr>
+<td><code>/rb fill &lt;x1&gt; &lt;y1&gt; &lt;z1&gt; &lt;x2&gt; &lt;y2&gt; &lt;z2&gt; &lt;block&gt;</code></td>
+<td><code>rebar.command.setblock</code></td>
+<td>Sets the given Rebar block at the coordinates provided</td>
+</tr>
+<tr>
+<td><code>/rb fillmultiblock</code></td>
+<td><code>rebar.command.fillmultiblock</code></td>
+<td>Attempts to complete the multiblock you are looking at</td>
+</tr>
+<tr>
 <td><code>/rb give &lt;player&gt; &lt;item&gt; [amount]</code></td>
 <td><code>rebar.command.give</code></td>
 <td>Gives a player a Rebar item</td>
@@ -1992,9 +2020,19 @@
 <td>Shows you the key of the Rebar item you're holding in your hand</td>
 </tr>
 <tr>
+<td><code>/rb setblock &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;block&gt;</code></td>
+<td><code>rebar.command.setblock</code></td>
+<td>Sets the given Rebar block at the coordinates provided</td>
+</tr>
+<tr>
 <td><code>/rb research add &lt;player&gt; &lt;research&gt;</code></td>
 <td><code>rebar.command.research.add</code></td>
 <td>Adds the given research to a player</td>
+</tr>
+<tr>
+<td><code>/rb research list &lt;player&gt; &lt;research&gt;</code></td>
+<td><code>rebar.command.research.list</code></td>
+<td>Lists the researches a player has</td>
 </tr>
 <tr>
 <td><code>/rb research addall &lt;player&gt;</code></td>
@@ -2027,19 +2065,14 @@
 <td>Removes research points from a player</td>
 </tr>
 <tr>
-<td><code>/rb setblock &lt;x&gt; &lt;y&gt; &lt;z&gt; &lt;block&gt;</code></td>
-<td><code>rebar.command.setblock</code></td>
-<td>Sets the given Rebar block at the coordinates provided</td>
+<td><code>/rb setphantom &lt;x&gt; &lt;y&gt; &lt;z&gt;</code></td>
+<td><code>rebar.command.setphantom</code></td>
+<td>Converts a block to a phantom block</td>
 </tr>
 <tr>
-<td><code>/py fillfluid</code></td>
-<td><code>pylon.command.fillfluid</code></td>
-<td>Fills a held portable fluid tank</td>
-</tr>
-<tr>
-<td><code>/py resetloupedata</code></td>
-<td><code>pylon.command.resetloupedata</code></td>
-<td>Resets the recorded items/blocks that a player has used the loupe on</td>
+<td><code>/rb versions</code></td>
+<td><code>rebar.command.versions</code></td>
+<td>Shows version information about server software, Rebar, and any addons</td>
 </tr>
 </tbody>
 </table>

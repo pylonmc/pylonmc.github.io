@@ -248,6 +248,25 @@
   
 
       
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../progress/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Progress
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -425,6 +444,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    List of addons
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -441,6 +478,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#verified-addons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verified addons
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-addons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other addons
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unmaintained-broken-addons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unmaintained &amp; broken addons
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -518,34 +607,6 @@
     
   
     Placeholders
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../progress/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Documentation progress
   
 
     
@@ -1784,6 +1845,33 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../progress/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Progress
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1804,6 +1892,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#verified-addons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verified addons
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-addons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other addons
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unmaintained-broken-addons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unmaintained &amp; broken addons
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1823,24 +1952,128 @@
 
 
 <h1 id="list-of-addons">List of addons</h1>
+<div class="admonition question">
+<p class="admonition-title">Found a mistake? Want to add your addon to the list?</p>
+<p>Please let us know on <a href="https://discord.gg/4tMAnBAacW">Discord</a>.</p>
+</div>
+<details class="info">
+<summary>What is 'AI usage' and 'status'?</summary>
+<div class="grid cards" markdown>
+<div class="admonition abstract">
+<p class="admonition-title">AI usage</p>
+<p>AI usage is counted as any usage of generative AI in the process of creating an addon where the output is not significantly changed by hand after being generated.</p>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="addon-ai-minimal">Minimal</span></td>
+<td>No or very little AI was used to create this addon</td>
+</tr>
+<tr>
+<td><span class="addon-ai-medium">Medium</span></td>
+<td>AI was used to generate some of this addon (&lt;25% of code/assets)</td>
+</tr>
+<tr>
+<td><span class="addon-ai-high">High</span></td>
+<td>AI was used to generate substantial portions of this addon (25%+ of code/assets)</td>
+</tr>
+<tr>
+<td><span class="addon-ai-undisclosed">Undisclosed</span></td>
+<td>Addon author did not disclose AI usage</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Status</p>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="addon-status-stable">Stable</span></td>
+<td><ul><li>Safe to use in production</li><li>No breaking changes expected</li></td>
+</tr>
+<tr>
+<td><span class="addon-status-unstable">Unstable</span></td>
+<td><ul><li>Still in developement</li><lI>Breaking changes expected</li><li>Only install on a test server</li></td>
+</tr>
+<tr>
+<td><span class="addon-status-development">Development</span></td>
+<td><ul><li>Still in development</li><li>Not available to download yet</li></td>
+</tr>
+<tr>
+<td><span class="addon-status-abandoned">Abandoned</span></td>
+<td><ul><li>No longer being maintained</li><li>May still work fine on latest version</li></td>
+</tr>
+<tr>
+<td><span class="addon-status-broken">Broken</span></td>
+<td><ul><li>Addon is known to not work on latest version</li></ul></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</details>
+<hr />
+<h2 id="verified-addons">Verified addons</h2>
+<p>These addons have been tested and verified to be robust, polished, balanced, and generally of a high quality by the Pylon team.</p>
 <table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Author</th>
+<th>AI usage</th>
+<th>Status</th>
 <th>Description</th>
-<th>Download</th>
+<th>Link</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Pylon</td>
-<td>Pylon team</td>
-<td>Adds all the base Pylon content. Required for most addons to work</td>
-<td><a href="https://github.com/pylonmc/pylon/releases">GitHub</a></td>
+<td><strong>Pylon</strong></td>
+<td>PylonMC</td>
+<td><span class="addon-ai-minimal">Minimal</span></td>
+<td><span class="addon-status-unstable">Unstable</span></td>
+<td>Adds all the base Pylon content. Required by most addons.</td>
+<td><a href="https://github.com/pylonmc/pylon">GitHub</a></td>
 </tr>
 </tbody>
 </table>
+<h2 id="other-addons">Other addons</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Author</th>
+<th>AI usage</th>
+<th>Status</th>
+<th>Description</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RebarRank</strong></td>
+<td>Idra</td>
+<td><span class="addon-ai-minimal">Minimal</span></td>
+<td><span class="addon-status-development">Development</span></td>
+<td>Adds a simple rankup system which ranks up players when they obtain certain Rebar items.</td>
+<td><a href="https://github.com/LordIdra/RebarRank">GitHub</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="unmaintained-broken-addons">Unmaintained &amp; broken addons</h2>
+<p>These addons are no longer being maintained and/or do not work on the latest versions of Rebar/Pylon.</p>
 
 
 
