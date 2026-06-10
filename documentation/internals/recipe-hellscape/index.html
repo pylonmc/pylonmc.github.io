@@ -1724,10 +1724,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#client-recipe-book-gaslighting" class="md-nav__link">
+  <a href="#representative-recipes-and-client-gaslighting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Client recipe book gaslighting
+        Representative recipes and client gaslighting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recipe-book-completion-hijacking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recipe book completion hijacking
       
     </span>
   </a>
@@ -2166,10 +2177,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#client-recipe-book-gaslighting" class="md-nav__link">
+  <a href="#representative-recipes-and-client-gaslighting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Client recipe book gaslighting
+        Representative recipes and client gaslighting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recipe-book-completion-hijacking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recipe book completion hijacking
       
     </span>
   </a>
@@ -2253,13 +2275,13 @@
 <hr />
 <h2 id="the-problems">The problems</h2>
 <h3 id="recipechoice-primer">RecipeChoice primer</h3>
-<p>In Rebar, we need to add new recipes to vanilla things, like the crafting table, furnace, etc. Easy right? Bukkit has a nice API which allows us to register new recipes with the server. When we register recipes, we need to provide a RecipeChoice. This is a sealed interface. The only available implementations are ExactChoice, MaterialChoice, and ItemTypeChoice (which is basically just MaterialChoice). </p>
+<p>In Rebar, we need to add new recipes to vanilla things, like the crafting table, furnace, etc. Easy right? Bukkit has a nice API which allows us to register new recipes with the server. When we register recipes, we need to provide a <a href="https://jd.papermc.io/paper/26.1.2/org/bukkit/inventory/RecipeChoice.html">RecipeChoice</a>. This is a sealed interface. The only available implementations are <a href="https://jd.papermc.io/paper/26.1.2/org/bukkit/inventory/RecipeChoice.ExactChoice.html">ExactChoice</a>, <a href="https://jd.papermc.io/paper/26.1.2/org/bukkit/inventory/RecipeChoice.MaterialChoice.html">MaterialChoice</a>, and <a href="https://jd.papermc.io/paper/26.1.2/org/bukkit/inventory/RecipeChoice.ItemTypeChoice.html">ItemTypeChoice</a> (which is basically just MaterialChoice). </p>
 <ul>
 <li>ExactChoice matches an item exactly. If anything at all is different (name, tool durability, even pdc contents, etc), it will fail to match.</li>
 <li>MaterialChoice and ItemTypeChoice match a material or a set of materials. They do not care about anything else like tool durability left, name, etc.</li>
 </ul>
 <h3 id="problem-1-rebar-items-in-vanilla-recipes">Problem 1: Rebar items in vanilla recipes</h3>
-<p>Rebar uses items' PersistentDataContainer to keep track of the Rebar item type. This means that, guess what, MaterialChoice and ItemTypeChoice will match Rebar items. For example, a tin ingot is backed by an iron ingot. So, if you place a tin ingot in a crafting grid, the iron nugget recipe will match (because it uses a material choice) and you will be able to happily convert your tin ingot into iron nuggets. This is less than ideal.</p>
+<p>Rebar uses items' <a href="https://jd.papermc.io/paper/1.21.11/org/bukkit/persistence/PersistentDataContainer.html">PersistentDataContainer</a> to keep track of the Rebar item type. This means that, guess what, MaterialChoice and ItemTypeChoice will match Rebar items. For example, a tin ingot is backed by an iron ingot. So, if you place a tin ingot in a crafting grid, the iron nugget recipe will match (because it uses a material choice) and you will be able to happily convert your tin ingot into iron nuggets. This is less than ideal.</p>
 <h3 id="problem-2-bukkit-recipe-choices-and-fuzzy-matching">Problem 2: Bukkit recipe choices and fuzzy matching</h3>
 <p>Obviously, MaterialChoice and ItemTypeChoice are instantly off the table for any recipes involving Rebar items without some kind of extra recipe handling logic. So we can only really use ExactChoice. This is very limiting. For example, what if we want to allow using a bronze pickaxe with any amount of durability in a recipe?</p>
 <p>We could try to use a MaterialChoice and then add a listener which corrects the output whenever someone attempts to register a recipe. But continuing with the bronze pickaxe example, the bronze pickaxe's backing item is a gold pickaxe. So if we want to allow using either a gold pickaxe or a bronze pickaxe, well, we have a problem. And there are other edge cases not mentioned here.</p>
@@ -2305,7 +2327,7 @@
 <p>RecipeType, except with a loadRecipe method which attempts to load recipes from a config section. Recipes are loaded from the corresponding file using loadRecipe on startup.</p>
 </div>
 <h3 id="vanilla-recipe-representations">Vanilla recipe representations</h3>
-<p>We need some way to store the vanilla recipes. To do this, Rebar has its own representations of vanilla recipe types. These can be found in the 'recipe.vanilla' package.</p>
+<p>We need some way to store the vanilla recipes. To do this, Rebar has its own representations of vanilla recipe types. These can be found in the <code>recipe.vanilla</code> package.</p>
 <h3 id="recipe-result-hijacking">Recipe result hijacking</h3>
 <p>Bukkit provides events for whenever a recipe is attempted or prepared. We listen to all of these events, and if there are any Rebar items present in the recipe inputs, we apply our own matching logic (detailed shortly) and manually override the result to either be null, or the correct output.</p>
 <p>In practice, this is more complicated because of a large number of edge cases and other behaviours that must be accounted for, such as two bronze pickaxes being merged.</p>
@@ -2323,17 +2345,19 @@
 <p class="admonition-title">Note</p>
 <p>Dummy recipes are not required for every recipe type. For example, crafting tables fire an event whenever their input is updated which we can take advantage of.</p>
 </div>
-<p>To mitigate this, when a Rebar recipe does not have a vanilla equivalent (i.e. a recipe which uses all the same backing materials - think tin ingot -&gt; tin nugget and iron ingot -&gt; iron nugget), we register dummy recipes. These are recipes which use a MaterialChoice of the corresponding Rebar item's backing material for all of their inputs. Now, when the recipe for a hydraulic pipe bender is placed into a crafting table...</p>
+<p>To mitigate this, we register dummy recipes. These are recipes which use a MaterialChoice of the corresponding Rebar item's backing material for all of their inputs. Now, when the recipe for a hydraulic pipe bender is placed into a crafting table...</p>
 <ul>
 <li>...the dummy recipe will match...</li>
 <li>...the event will fire...</li>
 <li>...and we'll intercept the event...</li>
-<li>...and we'll do our own matching to ensure that the items in the crafting grid actually match the recipe</li>
+<li>...and we'll do our own matching to ensure that the items in the crafting grid actually match (one of) the corresponding 'real' recipes</li>
 </ul>
 <p>This can be thought of as registering a recipe with weaker constraints (i.e. it might match stuff that's not in the recipe) and then enforcing a stronger constraint (ensuring the recipe exactly matches) when we intercept the event.</p>
-<h3 id="client-recipe-book-gaslighting">Client recipe book gaslighting</h3>
-<p>Remember how the recipe book is <em>mostly</em> clientsided? There is a PlayerRecipeBookClickEvent which is fired when the player attempts to complete a recipe using the recipe book.</p>
-<p>TODO</p>
+<h3 id="representative-recipes-and-client-gaslighting">Representative recipes and client gaslighting</h3>
+<p>An additional problem is that the recipe book cannot really handle dummy recipes because they match way more than only the exact recipe. The dummy recipes cause lots of false positives, but with the recipe book, we prefer false negatives - this is less frustrating for the player. Therefore, we use packet magic to hide the recipes from clients. As far as the client is concerned, the dummy recipes do not exist.</p>
+<p>But now there is a new problem: the recipe book does not actually contain any of the Rebar recipes. We do want the client to see <em>some</em> recipes. Therefore, we also register representative recipes. These recipes are effectively the opposite of dummy recipes; they have false negatives instead of false positives. This displays the recipes in the recipe book and <em>usually</em> is accurate, but in certain cases (i.e. fuzzy matching) is not.</p>
+<h3 id="recipe-book-completion-hijacking">Recipe book completion hijacking</h3>
+<p>Remember how the recipe book is <em>mostly</em> clientsided? There is a PlayerRecipeBookClickEvent which is fired when the player attempts to complete a recipe using the recipe book. Since the client is provided with representative recipes instead of the actual recipes, there are scenarios where the recipe completion logic will think that a recipe cannot be completed when in actuality it can. To fix this, we listen to the PlayerRecipeBookClickEvent, check the recipe being completed, and force the recipe to be completed if it matches the real recipe.</p>
 <hr />
 <h2 id="appendix">Appendix</h2>
 <h3 id="original-whiteboard-planning-out-the-system">Original whiteboard planning out the system</h3>
