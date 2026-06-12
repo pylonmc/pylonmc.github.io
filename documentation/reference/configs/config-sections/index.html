@@ -2163,10 +2163,14 @@
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1">// x = 5</span>
 </code></pre></div></td></tr></table></div>
 </div>
-<details class="question">
-<summary>How can I create my own config adapter?</summary>
-<p>See the <a href="config-adapter.md">config adapter docs page</a>.</p>
-</details>
+<div class="admonition question">
+<p class="admonition-title">What config adapters are available?</p>
+<p>See the <a href="../builtin-config-adapters/">builtin config adapters page</a>.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">How can I create my own config adapter?</p>
+<p>See the <a href="../custom-config-adapters/">config adapter docs page</a>.</p>
+</div>
 <h2 id="copying-merging-resources">Copying &amp; merging resources</h2>
 <p>Plugins have a <code>resources</code> folder containing files relevant to your plugin. When your plugin is compiled into a .jar, the .jar file contains the resources folder. You can therefore access any of the resources at runtime. </p>
 <p>You will often want to copy a config into your plugin's data folder (the plugin's folder in <code>plugins</code>). For example, if you add a default config.yml to your resource folder, you will want to copy it into your plugin's data folder if it does not already contain a config.yml. You can do this with the <a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/config/ConfigSection.html#copyResource(org.bukkit.plugin.Plugin,java.lang.String)">copyResource</a> method. </p>
