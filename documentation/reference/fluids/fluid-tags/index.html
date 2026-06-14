@@ -2198,6 +2198,7 @@
 <h3 id="creating-a-new-tag">Creating a new tag</h3>
 <p>To create a new tag, simply create a new class to represent your tag, and implement the RebarFluidTag class. This class has only one method; <code>getDisplayText</code>. This method is used to display your tag in the fluid's lore.</p>
 <p>You can then add the tag to your fluid using <a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/fluid/RebarFluid.html#addTag(io.github.pylonmc.rebar.fluid.RebarFluidTag)">RebarFluid#addTag</a>.</p>
+<p>You can use <a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/fluid/RebarFluid.html#hasTag(java.lang.Class)">RebarFluid#hasTag</a> to check if a fluid has a specific tag, and <a href="https://pylonmc.github.io/rebar/docs/javadoc/io/github/pylonmc/rebar/fluid/RebarFluid.html#getTag(java.lang.Class)">RebarFluid#getTag</a> to get a given tag from a fluid.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>A common point of confusion is that fluid tags are associated with a single <em>fluid type</em>. You cannot use the tag system to (for example) assign a numeric temperature to a fluid which allows water to be heated up in a boiler. This is because tags are assigned to a fluid type, not to a fluid that exists in the world. This is primarily due to hugely increased complexity and reduced performance during fluid routing.</p>
