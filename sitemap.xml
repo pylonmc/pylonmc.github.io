@@ -97,6 +97,12 @@
         <xhtml:link rel="alternate" hreflang="en" href="Nonedocumentation/internals/data-oriented-interfaces/"/>
     </url>
     <url>
+        <loc>Nonedocumentation/internals/electricity/</loc>
+        <lastmod>2026-07-01</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonedocumentation/internals/electricity/"/>
+    </url>
+    <url>
         <loc>Nonedocumentation/internals/fluids/</loc>
         <lastmod>2026-07-01</lastmod>
         <changefreq>daily</changefreq>
