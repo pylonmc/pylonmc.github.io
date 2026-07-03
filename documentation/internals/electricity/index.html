@@ -2559,18 +2559,17 @@
 <p>The electricity tick is split into three parts: the consumer tick, the acceptor tick, and the producer tick. Every tick, the network first checks if there is a consumer snapshot; if there is, it skips the consumer tick and goes straight to the acceptor tick. Otherwise, it first executes the consumer tick, stores the results in a new snapshot, and then only executes the acceptor tick.</p>
 <h3 id="consumer-snapshots">Consumer snapshots</h3>
 <p>This is the main performance-increasing part of the electric tick. Since producers and consumers specify <em>power</em> (watts) instead of <em>energy</em> (joules), electricity can be modeled as a flow instead of discrete units. Thus, assuming that production and consumption does not change, the result of the flow calculations can be cached until the inputs <em>do</em> change, greatly improving performance.</p>
+<p>Some producers, like capacitors, change their production often. Thus, in order to not invalidate the snapshot every time they do, the snapshot also stores a set of producers that were not used at all. If a producer is in this set, it can be updated without the snapshot being invalidated, as it being updated does not affect anything. There is also the edge case of this happening when there are unpowered consumers, so the snapshot also stores if there were any unpowered consumers. If so, then the extra energy might power it, so the snapshot in invalidated.</p>
 <p>This however does not work with acceptors&mdash;since acceptors take in a discrete amount of electricity, do a black-box thing to it (this is the important bit), and output a discrete amount, the results cannot be cached as they may change at any moment. Thus, the acceptor tick always runs, no matter the state of the snapshot. Since most electric machines are modeled as consumers instead of acceptors<sup>[<a href="https://xkcd.com/285/"><em>citation needed</em></a>]</sup>, the snapshot system should still greatly help with performance.</p>
 <h3 id="pathfinding">Pathfinding</h3>
 <p>In order to distribute power from producers to consumers, the code uses a greedy best-first search. The network keeps a heuristic map, which basically assigns each node a number based on how far (how many edges it needs to follow in the network) it is to a given consumer. Since this heuristic is perfect (i.e. it always gives an accurate distance to the goal), the greedy best-first search always follows the lower number first when searching, and, except in cases of unidirectionality or a hit power limit, always finds the optimal path without exploring any extra nodes.</p>
 <h3 id="consumer-tick">Consumer tick</h3>
 <ol>
 <li>Set every consumer requiring more than 0 energy to unpowered.</li>
-<li>Assign power to consumers using a round robin bucket fill: distribute equal amounts of energy from the total. If any consumer is assigned more energy than it requires, distribute the surplus among the rest.</li>
-<li>If any consumer does not have enough power assigned to it, remove the consumer that requires the most amount of power and go back to step 2. Otherwise, proceed to step 4.</li>
-<li>Assign "power taken" values to producers using the same round robin bucket fill algorithm, except using the power production as the limit.</li>
-<li>For every consumer:<ol>
-<li>For every producer available:<ol>
-<li>Pathfind from the producer to consumer. If there is no path from this producer to this consumer, go to the next producer. If there are no paths from any producer to this consumer, abandon the attempt and go to the next consumer.</li>
+<li>Sort producers first by priority, then by power production, descending</li>
+<li>Starting with the consumer which requires the least amount of power and going up:<ol>
+<li>For every producer (sorted in step 2):<ol>
+<li>Pathfind from the producer to consumer. If there is no path from this producer to this consumer, or if the producer has 0 power left, go to the next producer. If there are no paths from any producer to this consumer, abandon the attempt and go to the next consumer.</li>
 <li>Determine the actual amount of power that can travel from the producer to the consumer, using edge limits and edge loads (power already going through the network).</li>
 <li>Update edge loads with the power delivered. If any edges have hit their limit, temporarily disconnect them so pathfinding won't see them.</li>
 <li>If the consumer is unsatisfied, continue with the next producer, otherwise set it to powered and continue with the next consumer.</li>
@@ -2578,8 +2577,7 @@
 </li>
 </ol>
 </li>
-<li>Calculate the amount of surplus power available after doing the distribution.</li>
-<li>Update the consumer snapshot with the surplus power, edge loads, and disconnected edges.</li>
+<li>Update the consumer snapshot with the surplus power, edge loads, disconnected edges, surplus producers, and whether any consumer was left unpowered.</li>
 </ol>
 <h3 id="acceptor-tick">Acceptor tick</h3>
 <p>Conceptually similar to the consumer tick:</p>
@@ -2588,7 +2586,7 @@
 <li>For every acceptor:<ol>
 <li>Allocate an even amount of energy from the surplus for this acceptor.</li>
 <li>For every producer available:<ol>
-<li>Pathfind from the producer to acceptor. If there is no path from this producer to this acceptor, go to the next producer. If there are no paths from any producer to this acceptor, abandon the attempt and go to the next acceptor.</li>
+<li>Pathfind from the producer to acceptor. If there is no path from this producer to this acceptor, or if the producer has 0 power left, go to the next producer. If there are no paths from any producer to this acceptor, abandon the attempt and go to the next acceptor.</li>
 <li>Determine the actual amount of power that can travel from the producer to the acceptor, using edge limits and edge loads.</li>
 <li>Update edge loads with the power delivered. If any edges have hit their limit, temporarily disconnect them so pathfinding won't see them.</li>
 <li>Call the acceptor's callback with the delivered power.</li>
